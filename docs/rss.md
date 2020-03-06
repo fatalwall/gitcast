@@ -12,7 +12,7 @@ layout: none
     {{ site.github.url }}
   </link>
   <description>
-      <![CDATA[Site Description text here]]>
+      {{ '<![CDATA[Site Description text here]]>' }}
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
