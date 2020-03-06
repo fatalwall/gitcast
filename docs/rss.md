@@ -44,15 +44,15 @@ layout: none
   <itunes:summary>{{ post.excerpt }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:author>{{ site.github.author }}</itunes:author>
-  <itunes:image href="{{ site.github.url }}/{{ post.id | default: site.title }}.jpg"/>
-  <media:content url="{{ site.github.url }}/{{ post.id }}.mp3" type="audio/mpeg">
-    <media:player url="{{ site.github.url }}/{{ post.id }}/embed"/>
+  <itunes:image href="{{ site.github.url }}{{ post.id | default: site.title }}.jpg"/>
+  <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
+    <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
   </media:content>
-  <media:content url="{{ site.github.url }}/{{ post.id | default: site.title }}.jpg" type="image/jpeg"/>
+  <media:content url="{{ site.github.url }}{{ post.id | default: site.title }}.jpg" type="image/jpeg"/>
   <pubDate>{{ site.date }}</pubDate>
   <itunes:duration>3071</itunes:duration>
-  <enclosure url="{{ site.github.url }}/{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
-  <link>{{ post.url }}</link>
+  <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="49184685" type="audio/mpeg"/>
+  <link>{{ site.github.url }}{{ post.url }}</link>
 </item>
 {% endfor %}
 
