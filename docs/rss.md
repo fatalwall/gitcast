@@ -37,7 +37,7 @@ layout: none
   </image>
 
 {% for post in site.posts %}
-  {% assign postname = page.path | remove_first: '.html' %}
+  {% assign postname = podt.path | remove_first: '.html' %}
   {% for static_file in site.static_files | where: "image", true %}
     {% if static_file.path == '/postname.jpg' %}
         {% assign cover = static_file.path %}
