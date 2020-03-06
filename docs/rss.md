@@ -45,7 +45,7 @@ layout: none
   {% endfor %}
 
   <item>
-    <title>{{ post.title }}</title>
+    <title>{{ post.title }} - {{ postname }}</title>
     <itunes:title>{{ post.title }}</itunes:title>
     <description><![CDATA[{{ post.excerpt }}]]></description>
     <itunes:summary>{{ post.excerptplain }}</itunes:summary>
