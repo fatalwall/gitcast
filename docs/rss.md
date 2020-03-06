@@ -37,6 +37,7 @@ layout: none
   </image>
 
 {% for post in site.posts %}
+{{ postname }}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
   {% for static_file in site.static_files | where: "image", true %}
   {{ static_file.path | remove_first: '/assets/img/' }}
