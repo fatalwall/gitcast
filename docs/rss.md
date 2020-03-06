@@ -12,7 +12,7 @@ layout: none
     {{ site.github.url }}
   </link>
   <description>
-      {{ '<![CDATA[Site Description text here]]>' }}
+      {{ '\<' | append: '![CDATA[Site Description text here]]\>' }}
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
@@ -37,7 +37,7 @@ layout: none
   </image>
 {% for post in site.posts %}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
-  {% assign postPossibleImage = '/assets/img/' | append: postname | append: '.jpg' %}
+  {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
   {% assign cover = '/assets/img/default.jpg' %}
   {% for static_file in site.static_files | where: "image", true %}
     {% if static_file.path == postPossibleImage  %}
