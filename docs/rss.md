@@ -12,7 +12,7 @@ layout: none
     {{ site.github.url }}
   </link>
   <description>
-      Site Description text here
+      <![CDATA[Site Description text here]]>
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
@@ -40,7 +40,7 @@ layout: none
 <item>
   <title>{{ post.title }}</title>
   <itunes:title>{{ post.title }}</itunes:title>
-  <description>{{ post.excerpt }}</description>
+  <description><![CDATA[{{ post.excerpt }}]]></description>
   <itunes:summary>{{ post.excerpt }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:author>{{ site.github.author }}</itunes:author>
