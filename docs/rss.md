@@ -39,8 +39,8 @@ layout: none
 {% for post in site.posts %}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
   {% for static_file in site.static_files | where: "image", true %}
-  {{ static_file.path | remove_first: 'asset/img/' }}
-    {% if static_file.path | remove_first: 'asset/img/' == postname | append: '.jpg' %}
+  {{ static_file.path | remove_first: 'assets/img/' }}
+    {% if static_file.path | remove_first: 'assets/img/' == postname | append: '.jpg' %}
         {% assign cover = static_file.path %}
     {% endif %}
   {% endfor %}
@@ -52,11 +52,11 @@ layout: none
     <itunes:summary>{{ post.excerptplain }}</itunes:summary>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:author>{{ site.github.author }}</itunes:author>
-    <itunes:image href="{{ site.github.url }}/{{ cover | default: 'default' }}.jpg"/>
+    <itunes:image href="{{ site.github.url }}{{ cover | default: 'default' }}.jpg"/>
     <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
       <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
     </media:content>
-    <media:content url="{{ site.github.url }}/{{ cover | default: 'default' }}.jpg" type="image/jpeg"/>
+    <media:content url="{{ site.github.url }}{{ cover | default: 'default' }}.jpg" type="image/jpeg"/>
     <pubDate>{{ site.date }}</pubDate>
     <itunes:duration>{{ post.duration }}</itunes:duration>
     <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
