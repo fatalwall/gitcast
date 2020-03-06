@@ -8,11 +8,9 @@ layout: none
   <atom:link rel="self" type="application/rss+xml" href="{{ site.url }}"/>
   <itunes:new-feed-url>{{ site.url }}</itunes:new-feed-url>
   <title>{{ site.title }}</title>
-  <link>test</link>
+  <link>{{ site.url }}</link>
   <description>
-    <![CDATA[
       Site Description text here
-    ]]>
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
