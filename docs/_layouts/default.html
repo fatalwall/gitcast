@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
- <title>RSS Title</title>
- <description>This is an example of an RSS feed</description>
- <link>{{ site.url }}</link>
- <lastBuildDate>Mon, 06 Sep 2010 00:01:00 +0000 </lastBuildDate>
- <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
- <ttl>1800</ttl>
+ <language>en-US</language>
+  <atom:link rel="self" type="application/rss+xml" href="{{ site.url }}"/>
+  <itunes:new-feed-url>{{ site.url }}</itunes:new-feed-url>
+  <title>{{ site.title }}</title>
+  <link>{{ site.url }}</link>
+  <description>
+    <![CDATA[
+      {{ site.github.description }}
+    ]]>
+  </description>
+  <itunes:type>episodic</itunes:type>
+  <itunes:summary>{{ site.github.description }}</itunes:summary>
+  <itunes:owner>
+    <itunes:name>{{ site.github.author }}</itunes:name>
+    <itunes:email>name@mail.com</itunes:email>
+  </itunes:owner>
+  <itunes:author>{{ site.github.author }}</itunes:author>
+  <copyright>2020 Peter Varney</copyright>
+  <itunes:explicit>yes</itunes:explicit>
+  <itunes:category text="Comedy">
+    <itunes:category text="Improv"/>
+  </itunes:category>
+  <itunes:category text="Fiction">
+    <itunes:category text="Comedy Fiction"/>
+  </itunes:category>
+  <itunes:image href="{{ site.url }}/{{ site.title }}.jpg"/>
+  <image>
+    <url>{{ site.url }}/{{ site.title }}.jpg</url>
+    <title>{{ site.title }}</title>
+    <link>{{ site.url }}</link>
+  </image>
 
- 
 {% for post in site.posts %}
 <item>
   <title>{{ post.title }}</title>
@@ -16,12 +40,12 @@
   <description>{{ post.excerpt }}</description>
   <itunes:summary>{{ post.excerpt }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
-  <itunes:author>Peter Varney</itunes:author>
-  <itunes:image href="{{ site.url }}{{ page.id }}.jpg"/>
-  <media:content url="{{ site.url }}{{ page.id }}.mp3" type="audio/mpeg">
+  <itunes:author>{{ site.github.author }}</itunes:author>
+  <itunes:image href="{{ site.url }}/{{ page.id | default: site.title }}.jpg"/>
+  <media:content url="{{ site.url }}/{{ page.id }}.mp3" type="audio/mpeg">
     <media:player url="{{ site.url }}{{ page.id }}/embed"/>
   </media:content>
-  <media:content url="{{ site.url }}{{ page.id }}.jpg" type="image/jpeg"/>
+  <media:content url="{{ site.url }}/{{ page.id | default: site.title }}.jpg" type="image/jpeg"/>
   <pubDate>{{ site.date }}</pubDate>
   <itunes:duration>3071</itunes:duration>
   <enclosure url="{{ site.url }}{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
