@@ -45,6 +45,8 @@ layout: none
     {% endif %}
   {% endfor %}
 
+
+{{ cover }}
   <item>
     <title>{{ post.title }}</title>
     <itunes:title>{{ post.title }}</itunes:title>
