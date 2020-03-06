@@ -39,9 +39,9 @@ layout: none
 {% for post in site.posts %}
 {{ postname }}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
+  {% assign postPossibleImage = '/assets/img/' | append: postname | append: '.jpg' %}
   {% for static_file in site.static_files | where: "image", true %}
-  {{ static_file.path | remove_first: '/assets/img/' }}
-    {% if static_file.path | remove_first: '/assets/img/' == postname | append: '.jpg' %}
+    {% if static_file.path == postPossibleImage  %}
         {% assign cover = static_file.path %}
         {{ cover }}
     {% endif %}
