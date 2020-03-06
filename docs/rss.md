@@ -39,13 +39,14 @@ layout: none
 {% for post in site.posts %}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
   {% for static_file in site.static_files | where: "image", true %}
-    {% if static_file.path == '/postname.jpg' %}
+    {{ static_file.path }}
+    {% if static_file.path == '/' {{ postname }} '.jpg' %}
         {% assign cover = static_file.path %}
     {% endif %}
   {% endfor %}
 
   <item>
-    <title>{{ post.title }} - {{ postname }}</title>
+    <title>{{ post.title }}</title>
     <itunes:title>{{ post.title }}</itunes:title>
     <description><![CDATA[{{ post.excerpt }}]]></description>
     <itunes:summary>{{ post.excerptplain }}</itunes:summary>
