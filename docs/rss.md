@@ -35,9 +35,7 @@ layout: none
     <title>{{ site.title }}</title>
     <link>{{ site.github.url }}</link>
   </image>
-
 {% for post in site.posts %}
-{{ postname }}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
   {% assign postPossibleImage = '/assets/img/' | append: postname | append: '.jpg' %}
   {% assign cover = '/assets/img/default.jpg' %}
@@ -46,7 +44,6 @@ layout: none
         {% assign cover = static_file.path %}
     {% endif %}
   {% endfor %}
-
   <item>
     <title>{{ post.title }}</title>
     <itunes:title>{{ post.title }}</itunes:title>
@@ -65,6 +62,5 @@ layout: none
     <link>{{ site.github.url }}{{ post.url }}</link>
   </item>
 {% endfor %}
-
 </channel>
 </rss>
