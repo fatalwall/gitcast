@@ -51,11 +51,11 @@ layout: none
     <itunes:summary>{{ post.excerptplain }}</itunes:summary>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:author>{{ site.github.author }}</itunes:author>
-    <itunes:image href="{{ site.github.url }}/{{ cover | default: site.title }}.jpg"/>
+    <itunes:image href="{{ site.github.url }}/{{ cover | default: 'default' }}.jpg"/>
     <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
       <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
     </media:content>
-    <media:content url="{{ site.github.url }}/{{ cover | default: site.title }}.jpg" type="image/jpeg"/>
+    <media:content url="{{ site.github.url }}/{{ cover | default: 'default' }}.jpg" type="image/jpeg"/>
     <pubDate>{{ site.date }}</pubDate>
     <itunes:duration>{{ post.duration }}</itunes:duration>
     <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
