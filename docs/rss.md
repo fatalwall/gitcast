@@ -29,11 +29,11 @@ layout: none
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{ site.url }}/{{ site.title }}.jpg"/>
+  <itunes:image href="{{ site.github.url }}/{{ site.title }}.jpg"/>
   <image>
-    <url>{{ site.url }}/{{ site.title }}.jpg</url>
+    <url>{{ site.github.url }}/{{ site.title }}.jpg</url>
     <title>{{ site.title }}</title>
-    <link>{{ site.url }}</link>
+    <link>{{ site.github.url }}</link>
   </image>
 
 {% for post in site.posts %}
@@ -44,14 +44,14 @@ layout: none
   <itunes:summary>{{ post.excerpt }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:author>{{ site.github.author }}</itunes:author>
-  <itunes:image href="{{ site.url }}/{{ page.id | default: site.title }}.jpg"/>
-  <media:content url="{{ site.url }}/{{ page.id }}.mp3" type="audio/mpeg">
-    <media:player url="{{ site.url }}/{{ page.id }}/embed"/>
+  <itunes:image href="{{ site.github.url }}/{{ page.id | default: site.title }}.jpg"/>
+  <media:content url="{{ site.github.url }}/{{ page.id }}.mp3" type="audio/mpeg">
+    <media:player url="{{ site.github.url }}/{{ page.id }}/embed"/>
   </media:content>
-  <media:content url="{{ site.url }}/{{ page.id | default: site.title }}.jpg" type="image/jpeg"/>
+  <media:content url="{{ site.github.url }}/{{ page.id | default: site.title }}.jpg" type="image/jpeg"/>
   <pubDate>{{ site.date }}</pubDate>
   <itunes:duration>3071</itunes:duration>
-  <enclosure url="{{ site.url }}/{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
+  <enclosure url="{{ site.github.url }}/{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
   <link>{{ post.url }}</link>
 </item>
 {% endfor %}
