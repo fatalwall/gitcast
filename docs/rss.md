@@ -12,7 +12,7 @@ layout: none
     {{ site.github.url }}
   </link>
   <description>
-      \<![CDATA[Site Description text here]]>
+      <![CDATA[Site Description text here]]>
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
@@ -29,14 +29,21 @@ layout: none
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{ site.github.url }}/{{ site.title }}.jpg"/>
+  <itunes:image href="{{ site.github.url }}/default.jpg"/>
   <image>
-    <url>{{ site.github.url }}/{{ site.title }}.jpg</url>
+    <url>{{ site.github.url }}/default.jpg</url>
     <title>{{ site.title }}</title>
     <link>{{ site.github.url }}</link>
   </image>
 
 {% for post in site.posts %}
+    {% assign postname = page.path | remove_first: '.html' %}
+    {% for static_file in site.static_files %}
+      {% if static_file.path == '/postname.jpg' %}
+          {% assign cover = static_file.path %}
+      {% endif %}
+    {% endfor %}
+
 <item>
   <title>{{ post.title }}</title>
   <itunes:title>{{ post.title }}</itunes:title>
@@ -44,7 +51,7 @@ layout: none
   <itunes:summary>{{ post.excerptplain }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:author>{{ site.github.author }}</itunes:author>
-  <itunes:image href="{{ site.github.url }}{{ post.id | default: site.title }}.jpg"/>
+  <itunes:image href="{{ site.github.url }}{{ cover | default: site.title }}.jpg"/>
   <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
     <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
   </media:content>
