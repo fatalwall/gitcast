@@ -4,11 +4,13 @@ layout: none
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
- <language>en-US</language>
+  <language>en-US</language>
   <atom:link rel="self" type="application/rss+xml" href="{{ site.url }}"/>
   <itunes:new-feed-url>{{ site.url }}</itunes:new-feed-url>
   <title>{{ site.title }}</title>
-  <link>{{ site.url }}</link>
+  <link>
+    {{ site.url }}
+  </link>
   <description>
       Site Description text here
   </description>
