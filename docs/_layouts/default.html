@@ -43,12 +43,12 @@
   <itunes:author>{{ site.github.author }}</itunes:author>
   <itunes:image href="{{ site.url }}/{{ page.id | default: site.title }}.jpg"/>
   <media:content url="{{ site.url }}/{{ page.id }}.mp3" type="audio/mpeg">
-    <media:player url="{{ site.url }}{{ page.id }}/embed"/>
+    <media:player url="{{ site.url }}/{{ page.id }}/embed"/>
   </media:content>
   <media:content url="{{ site.url }}/{{ page.id | default: site.title }}.jpg" type="image/jpeg"/>
   <pubDate>{{ site.date }}</pubDate>
   <itunes:duration>3071</itunes:duration>
-  <enclosure url="{{ site.url }}{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
+  <enclosure url="{{ site.url }}/{{ page.id }}.mp3" length="49184685" type="audio/mpeg"/>
   <link>{{ post.url }}</link>
 </item>
 {% endfor %}
