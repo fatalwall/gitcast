@@ -37,30 +37,30 @@ layout: none
   </image>
 
 {% for post in site.posts %}
-    {% assign postname = page.path | remove_first: '.html' %}
-    {% for static_file in site.static_files %}
-      {% if static_file.path == '/postname.jpg' %}
-          {% assign cover = static_file.path %}
-      {% endif %}
-    {% endfor %}
+  {% assign postname = page.path | remove_first: '.html' %}
+  {% for static_file in site.static_files %}
+    {% if static_file.path == '/postname.jpg' %}
+        {% assign cover = static_file.path %}
+    {% endif %}
+  {% endfor %}
 
-<item>
-  <title>{{ post.title }}</title>
-  <itunes:title>{{ post.title }}</itunes:title>
-  <description><![CDATA[{{ post.excerpt }}]]></description>
-  <itunes:summary>{{ post.excerptplain }}</itunes:summary>
-  <itunes:episodeType>full</itunes:episodeType>
-  <itunes:author>{{ site.github.author }}</itunes:author>
-  <itunes:image href="{{ site.github.url }}{{ cover | default: site.title }}.jpg"/>
-  <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
-    <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
-  </media:content>
-  <media:content url="{{ site.github.url }}{{ post.id | default: site.title }}.jpg" type="image/jpeg"/>
-  <pubDate>{{ site.date }}</pubDate>
-  <itunes:duration>{{ post.duration }}</itunes:duration>
-  <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
-  <link>{{ site.github.url }}{{ post.url }}</link>
-</item>
+  <item>
+    <title>{{ post.title }}</title>
+    <itunes:title>{{ post.title }}</itunes:title>
+    <description><![CDATA[{{ post.excerpt }}]]></description>
+    <itunes:summary>{{ post.excerptplain }}</itunes:summary>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:author>{{ site.github.author }}</itunes:author>
+    <itunes:image href="{{ site.github.url }}/{{ cover | default: site.title }}.jpg"/>
+    <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
+      <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
+    </media:content>
+    <media:content url="{{ site.github.url }}/{{ cover | default: site.title }}.jpg" type="image/jpeg"/>
+    <pubDate>{{ site.date }}</pubDate>
+    <itunes:duration>{{ post.duration }}</itunes:duration>
+    <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
+    <link>{{ site.github.url }}{{ post.url }}</link>
+  </item>
 {% endfor %}
 
 </channel>
