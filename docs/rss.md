@@ -41,7 +41,7 @@ layout: none
   <title>{{ post.title }}</title>
   <itunes:title>{{ post.title }}</itunes:title>
   <description><![CDATA[{{ post.excerpt }}]]></description>
-  <itunes:summary>{{ post.excerpt }}</itunes:summary>
+  <itunes:summary>{{ post.excerptplain }}</itunes:summary>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:author>{{ site.github.author }}</itunes:author>
   <itunes:image href="{{ site.github.url }}{{ post.id | default: site.title }}.jpg"/>
@@ -50,8 +50,8 @@ layout: none
   </media:content>
   <media:content url="{{ site.github.url }}{{ post.id | default: site.title }}.jpg" type="image/jpeg"/>
   <pubDate>{{ site.date }}</pubDate>
-  <itunes:duration>3071</itunes:duration>
-  <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="49184685" type="audio/mpeg"/>
+  <itunes:duration>{{ post.duration }}</itunes:duration>
+  <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
   <link>{{ site.github.url }}{{ post.url }}</link>
 </item>
 {% endfor %}
