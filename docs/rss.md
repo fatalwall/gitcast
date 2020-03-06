@@ -8,14 +8,14 @@ layout: none
   <atom:link rel="self" type="application/rss+xml" href="{{ site.url }}"/>
   <itunes:new-feed-url>{{ site.url }}</itunes:new-feed-url>
   <title>{{ site.title }}</title>
-  <link>{{ site.url }}</link>
+  <link>test</link>
   <description>
-    \<![CDATA[
-      {{ site.github.description }}
-    ]]\>
+    <![CDATA[
+      Site Description text here
+    ]]>
   </description>
   <itunes:type>episodic</itunes:type>
-  <itunes:summary>{{ site.github.description }}</itunes:summary>
+  <itunes:summary>Site Description text here</itunes:summary>
   <itunes:owner>
     <itunes:name>{{ site.github.author }}</itunes:name>
     <itunes:email>name@mail.com</itunes:email>
