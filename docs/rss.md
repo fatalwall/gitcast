@@ -10,9 +10,9 @@ layout: none
   <title>{{ site.title }}</title>
   <link>{{ site.url }}</link>
   <description>
-    <![CDATA[
+    \<![CDATA[
       {{ site.github.description }}
-    ]]>
+    ]]\>
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>{{ site.github.description }}</itunes:summary>
