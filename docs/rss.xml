@@ -47,12 +47,14 @@ collectionType: podcast
      {% for post in collection.docs %}
           {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '.md' %}
           {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
-	{{ collection.files }}
-          {% for image in collection.files | where: "image", true %}
+	  {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.mp3' %}
+	{{audio}}
+
+	  {% for image in collection.files | where: "image", true %}
                {{image}}
-               {% if image.path == page.collectionType %}
+               {% if image.basename == postname %}
                     {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
-		          {% break %}
+		    {% break %}
                {% endif %}
           {% endfor %}
 
