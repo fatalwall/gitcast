@@ -41,6 +41,7 @@ collectionType: podcast
   </image>
      
 {% for collection in site.collections %}
+     {{ collection.label }}
   {% if collection.label == page.collectionType %}  
      {% for post in collection %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
