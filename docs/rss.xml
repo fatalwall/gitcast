@@ -45,7 +45,7 @@ collectionType: podcast
      
 {% for collection in site.collections | where: "label", page.collectionType  %}
      {% for post in collection.docs %}
-          {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '.md' %}
+          {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' %}
           {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
 	  {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.mp3' %}
 	{{audio}}
