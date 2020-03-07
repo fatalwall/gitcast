@@ -47,6 +47,8 @@ collectionType: podcast
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: page.collectionType | remove_first: '.md' %}
        {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %} 
+       {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
+
 {{ postname }}
        <item>
          <title>{{ post.title }}</title>
