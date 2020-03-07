@@ -47,7 +47,7 @@ collectionType: podcast
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
        {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %} 
-
+{{ postname }}
        <item>
          <title>{{ post.title }}</title>
          <itunes:title>{{ post.title }}</itunes:title>
@@ -55,11 +55,11 @@ collectionType: podcast
          <itunes:summary>{{ post.excerptplain }}</itunes:summary>
          <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
          <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
-         <itunes:image href="{{ site.github.url }}{{ cover }}"/>
+         <itunes:image href="{{ cover }}"/>
          <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
            <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
          </media:content>
-         <media:content url="{{ site.github.url }}{{ cover }}" type="image/jpeg"/>
+         <media:content url="{{ cover }}" type="image/jpeg"/>
          <pubDate>{{ site.date }}</pubDate>
          <itunes:duration>{{ post.duration }}</itunes:duration>
          <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
