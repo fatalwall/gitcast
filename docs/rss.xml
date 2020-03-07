@@ -41,15 +41,14 @@ collectionType: podcast
   </image>
      
 {% for collection in site.collections %}
-     {{ collection.label }}
   {% if collection.label == page.collectionType %}  
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
        {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
        {% assign cover = '/assets/img/default.jpg' %}
        {% for static_file in site.static_files | where: "image", true %}
-         {% if static_file.path == postPossibleImage  %}
-             {% assign cover = static_file.path %}
+         {% if static_file.path == postPossibleImage  %} 
+           {% assign cover = static_file.path %} 
          {% endif %}
        {% endfor %}
        <item>
