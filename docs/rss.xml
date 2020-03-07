@@ -46,9 +46,8 @@ collectionType: podcast
 {% for collection in site.collections | where: "label", page.collectionType  %}
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
-       {% assign cover =  collection.relative_directory | append: '/' | append: 'default.jpg' %} 
-     {{ site.github.url }}
-     {{ post.id }}
+       {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %} 
+
        <item>
          <title>{{ post.title }}</title>
          <itunes:title>{{ post.title }}</itunes:title>
