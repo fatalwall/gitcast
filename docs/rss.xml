@@ -20,12 +20,12 @@ layout: none
   <itunes:type>{{ podcast.type | default:'episodic' }}</itunes:type>
   <itunes:summary>{{ site.description }}</itunes:summary>
   <itunes:owner>
-    <itunes:name>{{ author.name }}</itunes:name>
-    <itunes:email>{{ author.email }}</itunes:email>
+    <itunes:name>{{ site.author.name }}</itunes:name>
+    <itunes:email>{{ site.author.email }}</itunes:email>
   </itunes:owner>
-  <itunes:author>{{ author.name }}</itunes:author>
-  <copyright>2020 {{ author.name }}</copyright>
-  <itunes:explicit>{{ podcast.explicit | defualt: 'yes' }}</itunes:explicit>
+  <itunes:author>{{ site.author.name }}</itunes:author>
+  <copyright>2020 {{ site.author.name }}</copyright>
+  <itunes:explicit>{{ site.podcast.explicit | defualt: 'yes' }}</itunes:explicit>
   <itunes:category text="Comedy">
     <itunes:category text="Improv"/>
   </itunes:category>
@@ -53,7 +53,7 @@ layout: none
     <description><![CDATA[{{ post.excerpt }}]]></description>
     <itunes:summary>{{ post.excerptplain }}</itunes:summary>
     <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
-    <itunes:author>{{ post.author.name | default: author.name }}</itunes:author>
+    <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
     <itunes:image href="{{ site.github.url }}{{ cover }}"/>
     <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
       <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
