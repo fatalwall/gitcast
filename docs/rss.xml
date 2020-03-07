@@ -1,6 +1,6 @@
 ---
 layout: none
-collection: podcast
+collectionType: podcast
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
@@ -40,34 +40,36 @@ collection: podcast
     <link>{{ site.github.url }}</link>
   </image>
      
-{% for post in site %}
-     {{ post }}
-{% for post in site.posts %}
-  {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
-  {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
-  {% assign cover = '/assets/img/default.jpg' %}
-  {% for static_file in site.static_files | where: "image", true %}
-    {% if static_file.path == postPossibleImage  %}
-        {% assign cover = static_file.path %}
-    {% endif %}
-  {% endfor %}
-  <item>
-    <title>{{ post.title }}</title>
-    <itunes:title>{{ post.title }}</itunes:title>
-    <description><![CDATA[{{ post.excerpt }}]]></description>
-    <itunes:summary>{{ post.excerptplain }}</itunes:summary>
-    <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
-    <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
-    <itunes:image href="{{ site.github.url }}{{ cover }}"/>
-    <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
-      <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
-    </media:content>
-    <media:content url="{{ site.github.url }}{{ cover }}" type="image/jpeg"/>
-    <pubDate>{{ site.date }}</pubDate>
-    <itunes:duration>{{ post.duration }}</itunes:duration>
-    <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
-    <link>{{ site.github.url }}{{ post.url }}</link>
-  </item>
+{% for collection in site.collections %}
+  {% if collection.label == page.collectionType %}  
+     {% for post in collection %}
+       {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
+       {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
+       {% assign cover = '/assets/img/default.jpg' %}
+       {% for static_file in site.static_files | where: "image", true %}
+         {% if static_file.path == postPossibleImage  %}
+             {% assign cover = static_file.path %}
+         {% endif %}
+       {% endfor %}
+       <item>
+         <title>{{ post.title }}</title>
+         <itunes:title>{{ post.title }}</itunes:title>
+         <description><![CDATA[{{ post.excerpt }}]]></description>
+         <itunes:summary>{{ post.excerptplain }}</itunes:summary>
+         <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
+         <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
+         <itunes:image href="{{ site.github.url }}{{ cover }}"/>
+         <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
+           <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
+         </media:content>
+         <media:content url="{{ site.github.url }}{{ cover }}" type="image/jpeg"/>
+         <pubDate>{{ site.date }}</pubDate>
+         <itunes:duration>{{ post.duration }}</itunes:duration>
+         <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
+         <link>{{ site.github.url }}{{ post.url }}</link>
+       </item>
+     {% endfor %}
+  {% endif %}
 {% endfor %}
 </channel>
 </rss>
