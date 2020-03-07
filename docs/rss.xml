@@ -47,14 +47,12 @@ collectionType: podcast
      {% for post in collection.docs %}
           {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' %}
           {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
-	  {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.mp3' %}
-	{{audio}}
+	  {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' %}
+	
 
 	  {% for image in collection.files | where: "image", true %}
-		{{image.basename}}
-		{{postname}}
                {% if image.basename == postname %}
-                    {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
+                    {% assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' %} 
 		    {% break %}
                {% endif %}
           {% endfor %}
@@ -66,14 +64,14 @@ collectionType: podcast
          <itunes:summary>{{ post.excerptplain }}</itunes:summary>
          <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
          <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
-         <itunes:image href="{{ cover }}"/>
-         <media:content url="{{ site.github.url }}{{ post.id }}.mp3" type="audio/mpeg">
+         <itunes:image href="{{cover}}"/>
+         <media:content url="{{audio}}" type="audio/mpeg">
            <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
          </media:content>
-         <media:content url="{{ cover }}" type="image/jpeg"/>
+         <media:content url="{{cover}}" type="image/jpeg"/>
          <pubDate>{{ site.date }}</pubDate>
          <itunes:duration>{{ post.duration }}</itunes:duration>
-         <enclosure url="{{ site.github.url }}{{ post.id }}.mp3" length="{{ post.length }}" type="audio/mpeg"/>
+         <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
          <link>{{ site.github.url }}{{ post.url }}</link>
        </item>
      {% endfor %}
