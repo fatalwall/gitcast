@@ -1,5 +1,6 @@
 ---
 layout: none
+collection: podcast
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
@@ -38,6 +39,9 @@ layout: none
     <title>{{ site.title }}</title>
     <link>{{ site.github.url }}</link>
   </image>
+     
+{% for post in site %}
+     {{ post }}
 {% for post in site.posts %}
   {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
   {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
