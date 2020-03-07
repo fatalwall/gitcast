@@ -2,3 +2,8 @@
 author:
   name             : "Peter Varney"
   email            : "email@address.com"
+
+# Collections
+collections:
+  podcast:
+    output: true
