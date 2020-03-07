@@ -51,7 +51,8 @@ collectionType: podcast
 	{{audio}}
 
 	  {% for image in collection.files | where: "image", true %}
-               {{image}}
+		{{image.basename}}
+		{{postname}}
                {% if image.basename == postname %}
                     {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
 		    {% break %}
