@@ -40,16 +40,15 @@ collectionType: podcast
     <link>{{ site.github.url }}</link>
   </image>
 
+
+
+     
 {% for collection in site.collections | where: "label", page.collectionType  %}
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
-       {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
-       {% assign cover = '/assets/img/default.jpg' %}
-       {% for static_file in site.static_files | where: "image", true %}
-         {% if static_file.path == postPossibleImage  %} 
-           {% assign cover = static_file.path %} 
-         {% endif %}
-       {% endfor %}
+       {% assign cover = collection.directory | append: 'default.jpg' %} 
+        {{ post }}
+
        <item>
          <title>{{ post.title }}</title>
          <itunes:title>{{ post.title }}</itunes:title>
