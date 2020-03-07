@@ -43,7 +43,7 @@ collectionType: podcast
 {% for collection in site.collections %}
      {{ collection.label }}
   {% if collection.label == page.collectionType %}  
-     {% for post in collection %}
+     {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
        {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
        {% assign cover = '/assets/img/default.jpg' %}
