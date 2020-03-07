@@ -15,7 +15,7 @@ layout: none
     {{ site.github.url }}
   </link>
   <description>
-    <![CDATA[{{ site.github.description }}]]>  
+    <![CDATA[{{ site.description }}]]>  
   </description>
   <itunes:type>episodic</itunes:type>
   <itunes:summary>Site Description text here</itunes:summary>
@@ -24,7 +24,7 @@ layout: none
     <itunes:email>name@mail.com</itunes:email>
   </itunes:owner>
   <itunes:author>{{ site.github.author }}</itunes:author>
-  <copyright>2020 Peter Varney</copyright>
+  <copyright>2020 {{ site.github.author }}</copyright>
   <itunes:explicit>yes</itunes:explicit>
   <itunes:category text="Comedy">
     <itunes:category text="Improv"/>
