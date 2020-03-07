@@ -39,15 +39,8 @@ collectionType: podcast
     <title>{{ site.title }}</title>
     <link>{{ site.github.url }}</link>
   </image>
-         
-{% for collection in site.collections | where: "label", page.collectionType | first  %}
-     {% assign cover = collection.directory | append: 'default.jpg' %} 
-     {% for images in collection.files | where: "image", true %}
 
-     {% endfor %}
-{% endif %} {% endfor %}
-     
-{% for collection in site.collections | where: "label", page.collectionType | first  %}
+{% for collection in site.collections | where: "label", page.collectionType  %}
      {% for post in collection.docs %}
        {% assign postname = post.path | remove_first: '_posts/' | remove_first: '.md' %}
        {% assign postPossibleImage = '/assets/img/' the | append: postname | append: '.jpg' %}
