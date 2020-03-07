@@ -45,10 +45,16 @@ collectionType: podcast
      
 {% for collection in site.collections | where: "label", page.collectionType  %}
      {% for post in collection.docs %}
-       {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '.md' %}
-       {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %} 
-       {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
-
+          {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '.md' %}
+          {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
+          {% for image in collection.files | where: "image", true %}
+               {{image.path}}
+               {% if image.path == '/favicon.ico' %}
+                    {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: postname | append: '.jpg' %} 
+		          {% break %}
+               {% endif %}
+          {% endfor %}
+     
 {{ postname }}
        <item>
          <title>{{ post.title }}</title>
