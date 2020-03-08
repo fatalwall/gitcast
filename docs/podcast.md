@@ -63,7 +63,6 @@ collectionType: podcast
       {% if posttime < nowunix %} 
         {%- comment -%}Figure out episode name{%- endcomment -%}
           {%- assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' -%}
-	  {{postname}}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
           {%- assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
