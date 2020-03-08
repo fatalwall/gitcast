@@ -38,43 +38,36 @@ collectionType: podcast
     <url>{{ site.github.url }}/default.jpg</url>
     <title>{{ site.title }}</title>
     <link>{{ site.github.url }}</link>
-  </image>
-
-
-
-     
+  </image>  
 {% for collection in site.collections | where: "label", page.collectionType  %}
-     {% for post in collection.docs %}
-          {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' %}
-          {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
-	  {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' %}
-	
-
-	  {% for image in collection.files | where: "image", true %}
-               {% if image.basename == postname %}
-                    {% assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' %} 
-		    {% break %}
-               {% endif %}
-          {% endfor %}
-
-       <item>
-         <title>{{ post.title }}</title>
-         <itunes:title>{{ post.title }}</itunes:title>
-         <description><![CDATA[{{ post.excerpt }}]]></description>
-         <itunes:summary>{{ post.excerptplain }}</itunes:summary>
-         <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
-         <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
-         <itunes:image href="{{cover}}"/>
-         <media:content url="{{audio}}" type="audio/mpeg">
-           <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
-         </media:content>
-         <media:content url="{{cover}}" type="image/jpeg"/>
-         <pubDate>{{ site.date }}</pubDate>
-         <itunes:duration>{{ post.duration }}</itunes:duration>
-         <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
-         <link>{{ site.github.url }}{{ post.url }}</link>
-       </item>
-     {% endfor %}
+  {% for post in collection.docs %}
+    {% comment %}Figure out episode name{% endcomment %}
+      {% assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' %}
+    {% comment %}Set the Audio file matching episode name{% endcomment %}
+      {% assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' %}	
+    {% comment %}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{% endcomment %}
+      {% assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' %}
+      {% for image in collection.files | where: "image", true %}{% if image.basename == postname %}{% assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' %}{% break %}{% endif %}{% endfor %}
+    {% comment %}Check date to determine if its published{% endcomment %}
+        {% comment %}Create Item record for Episoded{% endcomment %}
+        <item>
+          <title>{{ post.title }}</title>
+          <itunes:title>{{ post.title }}</itunes:title>
+          <description><![CDATA[{{ post.excerpt }}]]></description>
+          <itunes:summary>{{ post.excerptplain }}</itunes:summary>
+          <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
+          <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
+          <itunes:image href="{{cover}}"/>
+          <media:content url="{{audio}}" type="audio/mpeg">
+            <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
+          </media:content>
+          <media:content url="{{cover}}" type="image/jpeg"/>
+          <pubDate>{{ site.date }}</pubDate>
+          <itunes:duration>{{ post.duration }}</itunes:duration>
+          <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
+          <link>{{ site.github.url }}{{ post.url }}</link>
+        </item>
+  {% endfor %}
 {% endfor %}
 </channel>
 </rss>
