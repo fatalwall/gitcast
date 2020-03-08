@@ -1,6 +1,7 @@
 ---
 layout: default
-collectionType: podcast
+cast:
+  name: podcast
 ---
 <style>
 .gitcast-artical {
@@ -56,7 +57,7 @@ collectionType: podcast
 }
 </style>
 
-{%- for collection in site.collections | where: "label", page.collectionType -%}
+{%- for collection in site.collections | where: "label", page.cast.name -%}
   {% assign sorted = collection.docs | sort: 'date' | reverse %}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
@@ -64,14 +65,14 @@ collectionType: podcast
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %} 
         {%- comment -%}Figure out episode name{%- endcomment -%}
-          {%- assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' -%}
+          {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.name | remove_first: '/' | remove_first: '.md' -%}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
-          {%- assign audio =  site.baseurl | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' -%}	
+          {%- assign audio =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
-          {%- assign cover =  site.baseurl | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' -%}
+          {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
           {%- for image in collection.files | where: "image", true -%}
             {%- if image.basename == postname -%}
-              {%- assign cover =  site.baseurl | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' -%}
+              {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
               {%- break -%}
             {%- endif -%}
           {%- endfor -%}
