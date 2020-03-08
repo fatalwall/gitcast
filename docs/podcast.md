@@ -32,6 +32,7 @@ collectionType: podcast
 }
 .gitcast-body {
   display: flex;
+  flex-direction: row;
   flex: 1;
 }
 
