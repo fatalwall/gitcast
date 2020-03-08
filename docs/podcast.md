@@ -23,7 +23,7 @@ collectionType: podcast
           {%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
                               
-        <div id='{{postname}}'>
+        <article id='{{postname}}'>
           <!--
           <title>{{ post.title }}</title>
           <itunes:summary>{{ post.excerptplain }}</itunes:summary>
@@ -33,11 +33,21 @@ collectionType: podcast
           </media:content>
           <pubDate>{{ site.date }}</pubDate>
           -->
-          <div class="body excerpt-content">
-		        <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
-		        <span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
-		      </div>
+          <div class="excerpt-thumb">
+          <div class="intrinsic">
+            <div class="content">
+              <a href="{{post.url}}" class="excerpt-image" style="overflow: hidden;">
+                <img data-src="{{cover}}" data-image="{{cover}}" data-image-dimensions="2500x2500" data-image-focal-point="0.5,0.5" data-parent-ratio="1.0" alt="{{post.title}}" style="font-size: 0px; left: 0px; top: 0px; width: 105px; height: 105px; position: relative;" class="" data-image-resolution="300w" src="{{cover}}">
+              </a>
+            </div>
+          </div>
         </div>
+	  
+          <div class="body excerpt-content">
+            <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
+            <span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
+          </div>
+        </article>
      
       {%- endif -%}
   {%- endfor -%}
