@@ -94,7 +94,7 @@ collectionType: podcast
           </div>
         </div>
         <div class="gitcast-audiocontrol">
-          <audio controls>
+          <audio controls controlsList="nodownload" height="100">
             <source src="{{audio}}" type="audio/mpeg">
           </audio>
         </div>
