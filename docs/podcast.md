@@ -57,8 +57,8 @@ collectionType: podcast
 }
 
 .gitcast-action {
-  align: bottom;
-  align-text: right;
+  flex: 1;
+  text-align: right;
 }
 </style>
 
