@@ -31,6 +31,7 @@ collectionType: podcast
   margin-right:5;	
 }
 .gitcast-body {
+  display: flex;
   flex: 1;
 }
 
@@ -57,7 +58,7 @@ collectionType: podcast
 }
 
 .gitcast-action {
-  flex: 1;
+  align-self: flex-end;
   text-align: right;
 }
 </style>
