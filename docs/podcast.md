@@ -44,7 +44,12 @@ collectionType: podcast
 		</div>
 	  
 		<div class='gitcast-body'>
-			<div><h1>{{post.title}}</h1></div>
+			<div class="gitcast-Header>
+				<h1>{{post.title}}</h1>
+				<audio controls>
+					<source src="{{audio}}" type="audio/mpeg">
+				</audio>
+			</div>
 			<div class='gitcast-date'>
 				<a href="{{post.url}}">
 					<time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
@@ -54,9 +59,6 @@ collectionType: podcast
 				<p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
 			</div>
 			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
-			<audio controls>
-				<source src="{{audio}}" type="audio/mpeg">
-			</audio>
 		</div>
 	</div>
  </artical>
