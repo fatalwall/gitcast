@@ -22,17 +22,7 @@ collectionType: podcast
             {%- endif -%}
           {%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
-                              
-          <!--
-          <title>{{ post.title }}</title>
-          <itunes:summary>{{ post.excerptplain }}</itunes:summary>
-          <itunes:image href="{{cover}}"/>
-          <media:content url="{{audio}}" type="audio/mpeg">
-            <media:player url="{{ site.github.url }}{{ post.id }}/embed"/>
-          </media:content>
-          <pubDate>{{ site.date }}</pubDate>
-          -->
-	  
+                               
 <style>
 .gitcast-body {
   display: flex;
@@ -64,6 +54,9 @@ collectionType: podcast
 				<p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
 			</div>
 			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
+			<audio controls>
+				<source src="{{audio}}" type="audio/mpeg">
+			</audio>
 		</div>
 	</div>
  </artical>
