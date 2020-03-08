@@ -50,7 +50,7 @@ collectionType: podcast
 <artical class='gitcast-artical' id='{{post.title}}'>
     <div><h1>{{post.title}}</h1></div>
 	<div class='gitcast-body'>
-		<div class 'gitcast-cover'>
+		<div class='gitcast-cover'>
 		  <img src="http://vshed.us/gitcast/podcast/2019-12-14-TIL.jpg" alt="ImageDescription" width="200" height="200" />
 		</div>
 	  
