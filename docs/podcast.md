@@ -32,7 +32,7 @@ collectionType: podcast
 }
 .gitcast-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -56,11 +56,11 @@ collectionType: podcast
 .gitcast-excerpt p {
   margin-top:5;
   margin-bottom:5;
+  white-space:pre-wrap;
 }
 
 .gitcast-action {
-  align-self: flex-end;
-  text-align: right;
+  white-space:pre-wrap;
 }
 </style>
 
@@ -89,7 +89,7 @@ collectionType: podcast
         </div>
       </div>		
       <div class='gitcast-excerpt'>
-        <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
+        <p class="excerpt">{{post.excerptplain}}</p>
       </div>
       <div class="gitcast-action">
         <a class="read-more" href="{{post.url}}">Read More</a>
