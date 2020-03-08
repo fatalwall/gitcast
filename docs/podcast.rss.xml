@@ -73,7 +73,7 @@ collectionType: podcast
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <itunes:duration>{{ post.duration }}</itunes:duration>
           <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
-          <link>{{ site.url }}{{post.baseurl}}{{ post.url }}</link>
+          <link>{{ site.url }}{{page.baseurl}}{{ post.url }}</link>
         </item>
      
       {%- endif -%}
