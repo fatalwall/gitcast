@@ -24,12 +24,19 @@ collectionType: podcast
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
                                
 <style>
+.gitcast-artical {
+  margin-top:5;
+  margin-bottom:5;
+}
+	
 .gitcast-content {
   display: flex;
 }
+
 .gitcast-cover{
   margin-right:5;	
 }
+
 .gitcast-body {
   display: flex;
   flex-direction: column;
