@@ -40,6 +40,10 @@ collectionType: podcast
   flex: 1;
 }
 
+.gitcast-title h1 {
+  margin-bottom:0;
+}
+
 .gitcast-audiocontrol {
   align-self: center;
 }
@@ -54,7 +58,9 @@ collectionType: podcast
 		<div class='gitcast-body'>
 			<div class="gitcast-header">
 				<div class="gitcast-title">
-					<h1>{{post.title}}</h1>
+					<h1>
+						<a href="{{post.url}}">{{post.title}}</a>
+					</h1>
 					<div class='gitcast-date'>
 						<a href="{{post.url}}">
 							<time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
