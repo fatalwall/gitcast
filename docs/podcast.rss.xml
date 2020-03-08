@@ -27,7 +27,7 @@ cast:
   </itunes:owner>
   <itunes:author>{{ site.author.name }}</itunes:author>
   <copyright>2020 {{ site.author.name }}</copyright>
-  <itunes:explicit>{{ page.cast.explicit | defualt: 'yes' }}</itunes:explicit>
+  <itunes:explicit>{{ page.cast.explicit | default:'yes' }}</itunes:explicit>
   <itunes:category text="Comedy">
     <itunes:category text="Improv"/>
   </itunes:category>
