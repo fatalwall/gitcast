@@ -24,7 +24,7 @@ collectionType: podcast
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
                                
 <style>
-.gitcast-body {
+.gitcast-content {
   display: flex;
 }
 
@@ -32,7 +32,7 @@ collectionType: podcast
 
 }
 
-.gitcast-content {
+.gitcast-body {
   flex: 1;
 }
 </style>
