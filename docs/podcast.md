@@ -57,7 +57,7 @@ collectionType: podcast
 		<div class='gitcast-content'>			
 			<div class='gitcast-date'>
 				<a href="{{post.url}}">
-					<time class="published" datetime="{{post.date}}">{{ page.date | date: "%B %d, %Y" }}</time>
+					<time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
 				</a>
 			</div>
 			<div class='gitcast-excerpt'>
