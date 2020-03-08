@@ -69,7 +69,7 @@ collectionType: podcast
           <itunes:image href="{{cover}}"/>
           <media:content url="{{audio}}" type="audio/mpeg"/>
           <media:content url="{{cover}}" type="image/jpeg"/>
-          <pubDate>{{ site.date }}</pubDate>
+          <pubDate>{{ post.date }}</pubDate>
           <itunes:duration>{{ post.duration }}</itunes:duration>
           <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
           <link>{{ site.github.url }}{{ post.url }}</link>
