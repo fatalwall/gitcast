@@ -48,13 +48,13 @@ collectionType: podcast
 </style>
 
 <artical class='gitcast-artical' id='{{post.title}}'>
-    <div><h1>{{post.title}}</h1></div>
-	<div class='gitcast-body'>
-		<div class='gitcast-cover'>
-		  <img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
+	<div class='gitcast-content'>
+        	<div class='gitcast-cover'>
+               		<img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
 		</div>
 	  
-		<div class='gitcast-content'>			
+		<div class='gitcast-body'>
+			<div><h1>{{post.title}}</h1></div>
 			<div class='gitcast-date'>
 				<a href="{{post.url}}">
 					<time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
@@ -64,7 +64,6 @@ collectionType: podcast
 				<p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
 			</div>
 			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
-
 		</div>
 	</div>
  </artical>
