@@ -23,7 +23,6 @@ collectionType: podcast
           {%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
                               
-        <article id='{{postname}}'>
           <!--
           <title>{{ post.title }}</title>
           <itunes:summary>{{ post.excerptplain }}</itunes:summary>
@@ -34,38 +33,41 @@ collectionType: podcast
           <pubDate>{{ site.date }}</pubDate>
           -->
 	  
-<header>
-	<h1 class="episode-title" data-content-field="title">
-		<a href="{{post.url}}">{{post.title}}</a>
-	</h1>
+<style>
+.gitcast-body {
+  display: flex;
+}
 
-	<span class="article-dateline">
-		<span class="date">
-			<a href="{{post.url}}">
-				<time class="published" datetime="{{post.date}}">November 15, 2019</time>
-			</a>
-			<span class="delimiter">/</span>
-		</span>
-	</span>
-</header>
+.gitcast-cover {
+
+}
+
+.gitcast-content {
+
+}
+</style>
+
+<artical class='gitcast-artical' id='{{post.title}}'>
+    <div><h1>{{post.title}}</h1></div>
+	<div class='gitcast-body'>
+		<div class 'gitcast-cover'>
+		  <img src="http://vshed.us/gitcast/podcast/2019-12-14-TIL.jpg" alt="ImageDescription" width="200" height="200" />
+		</div>
 	  
-	  
-	  
-          <div class="excerpt-thumb">
-          <div class="intrinsic">
-            <div class="content">
-              <a href="{{post.url}}" class="excerpt-image" style="overflow: hidden;">
-                <img data-src="{{cover}}" data-image="{{cover}}" data-image-dimensions="2500x2500" data-image-focal-point="0.5,0.5" data-parent-ratio="1.0" alt="{{post.title}}" style="font-size: 0px; left: 0px; top: 0px; width: 105px; height: 105px; position: relative;" class="" data-image-resolution="300w" src="{{cover}}">
-              </a>
-            </div>
-          </div>
-        </div>
-	  
-          <div class="body excerpt-content">
-            <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
-            <span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
-          </div>
-        </article>
+		<div class='gitcast-content'>			
+			<div class='gitcast-date'>
+				<a href="{{post.url}}">
+					<time class="published" datetime="{{post.date}}">November 15, 2019</time>
+				</a>
+			</div>
+			<div class='gitcast-excerpt'>
+				<p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
+			</div>
+			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
+
+		</div>
+	</div>
+ </artical>
      
       {%- endif -%}
   {%- endfor -%}
