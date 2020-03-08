@@ -67,9 +67,7 @@ collectionType: podcast
           <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
           <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
           <itunes:image href="{{cover}}"/>
-          <media:content url="{{audio}}" type="audio/mpeg">
-            <media:player url="{{ site.github.url }}{{post.url}}"/>
-          </media:content>
+          <media:content url="{{audio}}" type="audio/mpeg"/>
           <media:content url="{{cover}}" type="image/jpeg"/>
           <pubDate>{{ site.date }}</pubDate>
           <itunes:duration>{{ post.duration }}</itunes:duration>
