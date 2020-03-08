@@ -27,7 +27,9 @@ collectionType: podcast
 .gitcast-content {
   display: flex;
 }
-
+.gitcast-cover{
+  margin-right:5;	
+}
 .gitcast-body {
   flex: 1;
 }
