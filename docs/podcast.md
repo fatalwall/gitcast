@@ -44,7 +44,7 @@ collectionType: podcast
 		</div>
 	  
 		<div class='gitcast-body'>
-			<div class="gitcast-Header>
+			<div class="gitcast-Header">
 				<h1>{{post.title}}</h1>
 				<audio controls>
 					<source src="{{audio}}" type="audio/mpeg">
