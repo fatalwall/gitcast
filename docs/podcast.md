@@ -37,7 +37,7 @@ collectionType: podcast
 }
 
 .gitcast-audiocontrol {
-  flex: 1;
+  align-self: right; 
 }
 </style>
 
