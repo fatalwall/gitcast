@@ -26,7 +26,9 @@ collectionType: podcast
 <style>
 .gitcast-artical {
   margin-top:5;
-  margin-bottom:5;
+  margin-bottom:10;
+  margin-left:5;
+  margin-right:5;
 }
 	
 .gitcast-content {
