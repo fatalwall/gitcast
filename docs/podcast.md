@@ -1,5 +1,5 @@
 ---
-layout: none
+layout: default
 collectionType: podcast
 ---
 <style>
