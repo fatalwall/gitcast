@@ -103,7 +103,7 @@ collectionType: podcast
         <p class="excerpt">{{post.excerptplain}}</p>
       </div>
       <div class="gitcast-action">
-        <a class="read-more" href="{{site.baseurl}}{{post.baseurl}}">Read More</a>
+        <a class="read-more" href="{{site.baseurl}}{{post.url}}">Read More</a>
       </div>
     </div>
   </div>
