@@ -45,7 +45,7 @@ collectionType: podcast
 }
 </style>
 
-<artical class='gitcast-artical' id='{{post.title}}'>
+<article class='gitcast-artical' id='{{post.title}}'>
 	<div class='gitcast-content'>
         	<div class='gitcast-cover'>
                		<img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
@@ -73,7 +73,7 @@ collectionType: podcast
 			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
 		</div>
 	</div>
- </artical>
+ </article>
      
       {%- endif -%}
   {%- endfor -%}
