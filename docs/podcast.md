@@ -2,27 +2,6 @@
 layout: none
 collectionType: podcast
 ---
-
-{%- for collection in site.collections | where: "label", page.collectionType -%}
-  {%- for post in collection.docs -%}
-    {%- comment -%}Check date to determine if its published{%- endcomment -%}
-      {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
-      {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
-      {% if posttime < nowunix %} 
-        {%- comment -%}Figure out episode name{%- endcomment -%}
-          {%- assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' -%}
-        {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
-          {%- assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' -%}	
-        {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
-          {%- assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' -%}
-          {%- for image in collection.files | where: "image", true -%}
-            {%- if image.basename == postname -%}
-              {%- assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- comment -%}Create Item record for Episoded{%- endcomment -%}
-                               
 <style>
 .gitcast-artical {
   margin-top:5;
@@ -76,7 +55,26 @@ collectionType: podcast
   text-align: right;
 }
 </style>
-
+{%- for collection in site.collections | where: "label", page.collectionType -%}
+  {%- for post in collection.docs -%}
+    {%- comment -%}Check date to determine if its published{%- endcomment -%}
+      {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
+      {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
+      {% if posttime < nowunix %} 
+        {%- comment -%}Figure out episode name{%- endcomment -%}
+          {%- assign postname = post.path | remove_first: '_' | remove_first: page.collectionType | remove_first: '/' | remove_first: '.md' -%}
+        {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
+          {%- assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' -%}	
+        {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
+          {%- assign cover =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: 'default.jpg' -%}
+          {%- for image in collection.files | where: "image", true -%}
+            {%- if image.basename == postname -%}
+              {%- assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- comment -%}Create Item record for Episoded{%- endcomment -%}
+                               
 <article class='gitcast-artical' id='{{post.title}}'>
   <div class='gitcast-content'>
     <div class='gitcast-cover'>
