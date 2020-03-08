@@ -43,7 +43,7 @@ collectionType: podcast
 }
 
 .gitcast-content {
-
+  flex: 1;
 }
 </style>
 
