@@ -58,6 +58,7 @@ collectionType: podcast
             {%- endif -%}
           {%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
+                              
         <item>
           <title>{{ post.title }}</title>
           <itunes:title>{{ post.title }}</itunes:title>
@@ -75,6 +76,7 @@ collectionType: podcast
           <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
           <link>{{ site.github.url }}{{ post.url }}</link>
         </item>
+     
       {%- endif -%}
   {%- endfor -%}
 {%- endfor -%}
