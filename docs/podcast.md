@@ -58,7 +58,7 @@ collectionType: podcast
 
 {%- for collection in site.collections | where: "label", page.collectionType -%}
   {% assign sorted = collection.docs | sort: 'date' %}
-  {%- for post in sorted -%}
+  {%- for post in sorted reversed -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
