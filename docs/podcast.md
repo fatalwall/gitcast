@@ -53,6 +53,10 @@ collectionType: podcast
   align-self: center;
 }
 
+.gitcast-excerpt {
+  flex: 1;
+}
+
 .gitcast-excerpt p {
   margin-top:5;
   margin-bottom:5;
@@ -60,7 +64,7 @@ collectionType: podcast
 }
 
 .gitcast-action {
-  white-space:pre-wrap;
+  
 }
 </style>
 
