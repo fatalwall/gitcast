@@ -68,6 +68,9 @@ collectionType: podcast
           {%- assign audio =  site.github.url | append: '/' | append: page.collectionType  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
           {%- assign cover = site.baseurl | append: post.url | remove_first: post.filename | append: '/default.jpg' -%} 
+	  {{ 'site.baseurl' | append: site.baseurl }}
+	  {{ 'post.url' | append: post.url }}
+	  {{ 'CollectionType' | append: page.collectionType }}
           {%- for image in collection.files | where: "image", true -%}
             {%- if image.basename == postname -%}
               {%- assign cover =  site.github.url | append: '/' | append: page.collectionType | append: '/' | append: postname | append: '.jpg' -%}
