@@ -39,6 +39,10 @@ collectionType: podcast
 .gitcast-title {
   flex: 1;
 }
+
+.gitcast-audiocontrol {
+  align-self: center;
+}
 </style>
 
 <artical class='gitcast-artical' id='{{post.title}}'>
