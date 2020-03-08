@@ -40,7 +40,8 @@ collectionType: podcast
     <link>{{ site.github.url }}</link>
   </image>  
 {%- for collection in site.collections | where: "label", page.collectionType -%}
-  {%- for post in collection.docs | sort: 'date' | reverse -%}
+  {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
+  {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
