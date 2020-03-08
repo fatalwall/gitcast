@@ -43,6 +43,7 @@ collectionType: podcast
 }
 
 .gitcast-title h1 {
+  margin-top:5;
   margin-bottom:0;
 }
 
