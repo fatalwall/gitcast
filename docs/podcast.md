@@ -36,8 +36,8 @@ collectionType: podcast
   display: flex;
 }
 
-.gitcast-audiocontrol {
-  align-self: right; 
+.gitcast-title {
+  flex: 1;
 }
 </style>
 
