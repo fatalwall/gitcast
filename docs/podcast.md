@@ -89,7 +89,9 @@ collectionType: podcast
       <div class='gitcast-excerpt'>
         <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
       </div>
-      <span class="gitcast-action"><a class="read-more" href="{{post.url}}">Read More</a></span>
+      <div class="gitcast-action">
+        <a class="read-more" href="{{post.url}}">Read More</a>
+      </div>
     </div>
   </div>
 </article>
