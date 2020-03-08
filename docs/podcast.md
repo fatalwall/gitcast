@@ -28,11 +28,15 @@ collectionType: podcast
   display: flex;
 }
 
-.gitcast-cover {
-
+.gitcast-body {
+  flex: 1;
 }
 
-.gitcast-body {
+.gitcast-header {
+  display: flex;
+}
+
+.gitcast-audiocontrol {
   flex: 1;
 }
 </style>
@@ -44,11 +48,15 @@ collectionType: podcast
 		</div>
 	  
 		<div class='gitcast-body'>
-			<div class="gitcast-Header">
-				<h1>{{post.title}}</h1>
-				<audio controls>
-					<source src="{{audio}}" type="audio/mpeg">
-				</audio>
+			<div class="gitcast-header">
+				<div class="gitcast-title">
+					<h1>{{post.title}}</h1>
+				</div>
+				<div class="gitcast-audiocontrol">
+					<audio controls>
+						<source src="{{audio}}" type="audio/mpeg">
+					</audio>
+				</div>
 			</div>
 			<div class='gitcast-date'>
 				<a href="{{post.url}}">
