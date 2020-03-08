@@ -51,13 +51,13 @@ collectionType: podcast
     <div><h1>{{post.title}}</h1></div>
 	<div class='gitcast-body'>
 		<div class='gitcast-cover'>
-		  <img src="http://vshed.us/gitcast/podcast/2019-12-14-TIL.jpg" alt="ImageDescription" width="200" height="200" />
+		  <img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
 		</div>
 	  
 		<div class='gitcast-content'>			
 			<div class='gitcast-date'>
 				<a href="{{post.url}}">
-					<time class="published" datetime="{{post.date}}">November 15, 2019</time>
+					<time class="published" datetime="{{post.date}}">{{ page.date | date: "%B %d, %Y" }}</time>
 				</a>
 			</div>
 			<div class='gitcast-excerpt'>
