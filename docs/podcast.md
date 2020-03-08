@@ -56,7 +56,7 @@ collectionType: podcast
 }
 </style>
 
-{%- for collection in site.collections | where: "label", page.collectionType | sort: 'date' | reverse -%}
+{%- for collection in site.collections | where: "label", page.collectionType | sort: 'date' -%}
   {%- for post in collection.docs -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
