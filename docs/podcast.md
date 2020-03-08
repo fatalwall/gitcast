@@ -50,40 +50,49 @@ collectionType: podcast
 .gitcast-audiocontrol {
   align-self: center;
 }
+
+.gitcast-excerpt p {
+  margin-top:5;
+  margin-bottom:5;
+}
+
+.gitcast-action {
+  align: bottom;
+  align-text: right;
+}
 </style>
 
 <article class='gitcast-artical' id='{{post.title}}'>
-	<div class='gitcast-content'>
-        	<div class='gitcast-cover'>
-               		<img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
-		</div>
+  <div class='gitcast-content'>
+    <div class='gitcast-cover'>
+      <img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
+    </div>
 	  
-		<div class='gitcast-body'>
-			<div class="gitcast-header">
-				<div class="gitcast-title">
-					<h1>
-						<a href="{{post.url}}">{{post.title}}</a>
-					</h1>
-					<div class='gitcast-date'>
-						<a href="{{post.url}}">
-							<time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
-						</a>
-					</div>
-				</div>
-				<div class="gitcast-audiocontrol">
-					<audio controls>
-						<source src="{{audio}}" type="audio/mpeg">
-					</audio>
-				</div>
-			</div>
-			
-			<div class='gitcast-excerpt'>
-				<p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
-			</div>
-			<span class="action"><a class="read-more" href="{{post.url}}">Read More</a></span>
-		</div>
-	</div>
- </article>
+    <div class='gitcast-body'>
+      <div class="gitcast-header">
+        <div class="gitcast-title">
+          <h1>
+            <a href="{{post.url}}">{{post.title}}</a>
+          </h1>
+          <div class='gitcast-date'>
+            <a href="{{post.url}}">
+              <time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
+            </a>
+          </div>
+        </div>
+        <div class="gitcast-audiocontrol">
+          <audio controls>
+            <source src="{{audio}}" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>		
+      <div class='gitcast-excerpt'>
+        <p class="excerpt" style="white-space:pre-wrap;">{{post.excerptplain}}</p>
+      </div>
+      <span class="gitcast-action"><a class="read-more" href="{{post.url}}">Read More</a></span>
+    </div>
+  </div>
+</article>
      
       {%- endif -%}
   {%- endfor -%}
