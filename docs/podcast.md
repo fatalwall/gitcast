@@ -85,10 +85,10 @@ collectionType: podcast
       <div class="gitcast-header">
         <div class="gitcast-title">
           <h1>
-            <a href="{{site.baseurl}}/{{post.url}}">{{post.title}}</a>
+            <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
           </h1>
           <div class='gitcast-date'>
-            <a href="{{site.baseurl}}/{{post.url}}">
+            <a href="{{site.baseurl}}{{post.url}}">
               <time class="published" datetime="{{post.date}}">{{ post.date | date: "%B %d, %Y" }}</time>
             </a>
           </div>
@@ -103,7 +103,7 @@ collectionType: podcast
         <p class="excerpt">{{post.excerptplain}}</p>
       </div>
       <div class="gitcast-action">
-        <a class="read-more" href="{{site.baseurl}}/{{post.url}}">Read More</a>
+        <a class="read-more" href="{{site.baseurl}}{{post.url}}">Read More</a>
       </div>
     </div>
   </div>
