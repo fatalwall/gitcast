@@ -33,6 +33,24 @@ collectionType: podcast
           </media:content>
           <pubDate>{{ site.date }}</pubDate>
           -->
+	  
+<header>
+	<h1 class="episode-title" data-content-field="title">
+		<a href="{{post.url}}">{{post.title}}</a>
+	</h1>
+
+	<span class="article-dateline">
+		<span class="date">
+			<a href="{{post.url}}">
+				<time class="published" datetime="{{post.date}}">November 15, 2019</time>
+			</a>
+			<span class="delimiter">/</span>
+		</span>
+	</span>
+</header>
+	  
+	  
+	  
           <div class="excerpt-thumb">
           <div class="intrinsic">
             <div class="content">
