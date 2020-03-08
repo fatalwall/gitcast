@@ -7,5 +7,5 @@ author:
 collections:
   podcast:
     output: true
-    permalink: /:collection/level/relative/
+    permalink: /:collection/:year-:month-:day-:title
 
