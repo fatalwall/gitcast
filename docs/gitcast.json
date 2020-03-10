@@ -8,9 +8,8 @@ cast:
   {%- for collection in site.collections -%}{% if collection.gitcast == true %}
     {%- if cCount == 1 -%}{{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
     {
-      {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
       "name":"{{ collection.label }}", "refreshDates":[
-      {%- assign sorted = collection.docs | where_exp: 'date', 'date < site.time' | sort: 'date' -%}
+      {%- assign sorted = collection.docs | where_exp: 'date', 'date > now' | sort: 'date' -%}
       {%- for post in sorted -%}
         {%- if pCount == 1 -%}{{','}}{%- else -%}{%- assign pCount = 1 -%}{%- endif -%}          
         "{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}"
