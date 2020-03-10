@@ -18,7 +18,6 @@ cast:
           {%- assign newToday = true -%}
         {%- endif -%}
       {%- endfor -%}
-      "{{ newToday }}"
-    } 
+      "{{ newToday }}"} 
   {%- endif -%}{%- endfor -%}
 ]}
