@@ -71,7 +71,8 @@ cast:
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
           {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
           {%- for image in collection.files | where: "image", true -%}
-	  {{ image.basename }} {{ '=='  }} {{ postname }}
+	  {{ image }} 
+	  
             {%- if image.basename == postname -%}
               {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
               {%- break -%}
@@ -83,8 +84,7 @@ cast:
   <div class='gitcast-content'>
     <div class='gitcast-cover'>
       <img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
-    </div>
-	  
+    </div>  
     <div class='gitcast-body'>
       <div class="gitcast-header">
         <div class="gitcast-title">
