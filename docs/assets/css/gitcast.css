@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 650px) and (orientation: portrait) {
+@media only screen and (max-width: 650px) {
   .gitcast-content {
     flex-direction: column;
   }
