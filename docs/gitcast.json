@@ -5,7 +5,7 @@ cast:
 ---
 {
   {%- for collection in site.collections -%}{%- if collection.gitcast == true -%}
-  "gitcast":[{"castName":"{{ collection.label }}"
+  "gitcast":[{"castName":"{{ collection.label }}",
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
       "maxDate":"{{ post.date | date: "%Y/%m/%d" }}", "newToday":
       {%- assign newToday = false -%}
@@ -18,6 +18,6 @@ cast:
           {%- assign newToday = true -%}
         {%- endif -%}
       {%- endfor -%}
-      "{{ newToday }}"} 
+      "{{ newToday }}"}, 
   {%- endif -%}{%- endfor -%}
 ]}
