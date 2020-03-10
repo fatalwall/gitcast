@@ -70,7 +70,7 @@ cast:
           {%- assign audio =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
           {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
-          {%- for image in collection.files | where: "image", true -%}
+          {%- for image in collection.files -%}
 	  {{ image.basename }} 
 	  {{ image.path }} 
 	  {{ image.extname }} 
