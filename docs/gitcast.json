@@ -20,6 +20,6 @@ cast:
         {%- endif -%}
       {%- endfor -%}
       "{{ newToday }}"}
-      {%- if cCount == 1 -%){{ "," }}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
+      {%- if cCount == 1 -%},{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
   {%- endfor -%}
 ]}
