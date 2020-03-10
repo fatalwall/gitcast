@@ -27,7 +27,7 @@ cast:
 <article class='gitcast-artical' id='{{post.title}}'>
   <div class='gitcast-content'>
     <div class='gitcast-cover'>
-      <img src="{{cover}}" alt="ImageDescription" width="200" height="200" />
+      <img src="{{cover}}" alt="ImageDescription" />
     </div>  
     <div class='gitcast-body'>
       <div class="gitcast-header">
