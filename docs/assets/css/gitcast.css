@@ -50,8 +50,11 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .gitcast-content {
+    flex-direction: column;
+  }
+  .gitcast-header {
     flex-direction: column;
   }
 }
