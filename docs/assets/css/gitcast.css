@@ -50,7 +50,7 @@
   text-align: right;
 }
 
-@media only screen and (max-width: 650px) and (orientation: landscape) {
+@media only screen and (max-width: 650px) and (orientation: portrait) {
   .gitcast-content {
     flex-direction: column;
   }
@@ -59,5 +59,14 @@
   }
   .gitcast-cover {
     align-self: center;
+  }
+}
+
+@media only screen and (max-width: 650px) and (orientation: landscape) {
+  .gitcast-content {
+    flex-direction: column;
+  }
+  .gitcast-header {
+    flex-direction: column;
   }
 }
