@@ -2,7 +2,7 @@
 layout: default
 cast:
   name: podcast
-#style:
+#style: assets/css/gitcast.css
 ---
 <link rel="stylesheet" type="text/css" href="{{ page.style | default: 'assets/css/gitcast.css' }}">
 
