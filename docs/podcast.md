@@ -7,7 +7,7 @@ cast:
 <link rel="stylesheet" type="text/css" href="{{ page.style | default: 'assets/css/gitcast.css' }}">
 
 {%- for collection in site.collections | where: "label", page.cast.name -%}
-  {% assign sorted = collection.docs | sort: 'date' | reverse %}
+  {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
