@@ -18,6 +18,7 @@ cast:
         {%- capture nowmonth %}{{'now' | date: '%m'}}{% endcapture -%}
         {%- capture nowday %}{{'now' | date: '%d'}}{% endcapture -%}
         {%- capture tomorrow %}{{nowyear}}/{{nowmonth}}/{{nowday}}{% endcapture -%}
+        {%- capture tomorrow %}{{tomorrow | date: '%s'}}{% endcapture -%}
         {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
         {% if posttime == tomorrow %} 
           {%- assign newTomorrow = true -%}
