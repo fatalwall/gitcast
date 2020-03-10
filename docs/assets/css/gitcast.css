@@ -63,9 +63,6 @@
 }
 
 @media only screen and (max-width: 850px) {
-  .gitcast-content {
-    flex-direction: column;
-  }
   .gitcast-header {
     flex-direction: column;
   }
