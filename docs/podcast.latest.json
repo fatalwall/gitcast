@@ -4,5 +4,12 @@ cast:
   name: podcast
 ---
 {
-  "date": {{ page.date }}
+  "date": " 
+  {%- for collection in site.collections | where: "label", page.cast.name -%}
+    {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
+    {%- for post in sorted | first-%}
+      {{ post.date }}
+    {%- endfor -%}
+  {%- endfor -%}
+  "
 }
