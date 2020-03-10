@@ -71,7 +71,8 @@ cast:
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
           {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
           {%- for image in collection.files | where: "image", true -%}
-	  {{ image }} 
+	  {{ image.basename }} 
+	  {{ image.url }} 
 	  
             {%- if image.basename == postname -%}
               {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
