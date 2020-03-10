@@ -5,9 +5,8 @@ cast:
 ---
 {
   {%- for collection in site.collections -%}{% if collection.gitcast == true %}
-  [
-    "{{ collection.label }}" 
-    {
+  "gitcast":[
+    "{{ collection.label }}":{
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
     
       "maxDate":"{{ post.date | date: "%Y/%m/%d" }}",
