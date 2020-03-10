@@ -72,7 +72,9 @@ cast:
           {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
           {%- for image in collection.files | where: "image", true -%}
 	  {{ image.basename }} 
-	  {{ image.url }} 
+	  {{ image.path }} 
+	  {{ image.extname }} 
+	  {{ image.name }}
 	  
             {%- if image.basename == postname -%}
               {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
