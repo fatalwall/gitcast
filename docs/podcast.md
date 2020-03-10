@@ -70,15 +70,17 @@ cast:
           {%- assign audio =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
           {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
-          {%- for image in collection.files | where: "basename", postname -%}
-	  {{ image.basename }} 
-	  {{ image.path }} 
-	  {{ image.extname }} 
-	  {{ image.name }}
-	  
-            {%- if image.basename == postname -%}
-              {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
-              {%- break -%}
+          {%- for image in collection.files -%}
+	    {%  if image.extname == '.jpg' %}
+		  {{ image.basename }} 
+		  {{ image.path }} 
+		  {{ image.extname }} 
+		  {{ image.name }}
+	    
+              {%- if image.basename == postname -%}
+                {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: postname | append: '.jpg' -%}
+                {%- break -%}
+	      {% endif %}
             {%- endif -%}
           {%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
