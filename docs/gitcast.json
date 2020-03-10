@@ -4,6 +4,7 @@ cast:
   name: podcast
 ---
 {
+  {%- assign cCount = 0 -%}
   {%- for collection in site.collections -%}{%- if collection.gitcast == true -%}
   "gitcast":[{
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
@@ -18,6 +19,7 @@ cast:
           {%- assign newToday = true -%}
         {%- endif -%}
       {%- endfor -%}
-      "{{ newToday }}"}, 
+      "{{ newToday }}"}
+      {%- if cCount > 0 -%){{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
   {%- endif -%}{%- endfor -%}
 ]}
