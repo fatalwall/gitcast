@@ -10,16 +10,25 @@ cast:
     {
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
       "castName":"{{ collection.label }}", "maxDate":"{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}", "newToday":
-      {%- assign newToday = false -%}
+      {%- assign newTomorrow = false -%}
       {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
       {%- for post in sorted -%}
         {%- comment -%}Check date to determine if its published{%- endcomment -%}
-        {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
+        {%- capture nowyear %}{{'now' | date: '%Y'}}{% endcapture -%}
+        {%- capture nowmonth %}{{'now' | date: '%m'}}{% endcapture -%}
+        {%- capture nowday %}{{'now' | date: '%d'}}{% endcapture -%}
+        {%- capture tomorrow %}{{nowyear}}/{{nowmonth}}/{{nowday}}{% endcapture -%}
         {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
-        {% if posttime == nowunix %} 
-          {%- assign newToday = true -%}
+        {% if posttime == tomorrow %} 
+          {%- assign newTomorrow = true -%}
         {%- endif -%}
       {%- endfor -%}
-      "{{ newToday }}"}
+      "{{ newTomorrow }}
+  
+  posttime: {{posttime}}
+  
+  tomorrow: {{tomorrow}}
+    
+  "}
   {%- endif -%}{%- endfor -%}
 ]}
