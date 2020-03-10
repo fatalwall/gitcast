@@ -61,6 +61,6 @@
     align-self: center;
   }
   .gitcast-audiocontrol {
-    width: 100%;
+    flex: 1;
   }
 }
