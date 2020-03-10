@@ -6,10 +6,8 @@ cast:
 {
   "date": " 
   {%- for collection in site.collections | where: "label", page.cast.name -%}
-    {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
-    {%- for post in sorted | first-%}
-      {{ post.date | date: "%Y/%m/%d" }}
-    {%- endfor -%}
+    {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
+    {{ post.date | date: "%Y/%m/%d" }}
   {%- endfor -%}
   "
 }
