@@ -60,4 +60,7 @@
   .gitcast-cover {
     align-self: center;
   }
+  .gitcast-audiocontrol {
+    width: 100%;
+  }
 }
