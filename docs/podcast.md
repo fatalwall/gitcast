@@ -3,7 +3,7 @@ layout: default
 cast:
   name: podcast
 ---
-<link rel="stylesheet" type="text/css" href="assets/css/gitcast.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/gitcast.css">
 
 {%- for collection in site.collections | where: "label", page.cast.name -%}
   {% assign sorted = collection.docs | sort: 'date' | reverse %}
