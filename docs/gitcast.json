@@ -4,9 +4,8 @@ cast:
   name: podcast
 ---
 {
-  { "test":"true"},
   {%- for collection in site.collections | where: "gitcast", true -%}
-  ["{{ collection.label }}" 
+  ["{{ collection.label | append: collection.gitcast }}" 
     {
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
       "maxDate":"{{ post.date | date: "%Y/%m/%d" }}",
