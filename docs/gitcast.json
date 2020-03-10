@@ -3,10 +3,10 @@ layout: none
 cast:
   name: podcast
 ---
-{
+{"gitcast":[
   {%- assign cCount = 0 -%}
   {%- for collection in site.collections -%}
-  "gitcast":[{
+  {
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
       "castName":"{{ collection.label }}", "maxDate":"{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}", "newToday":
       {%- assign newToday = false -%}
