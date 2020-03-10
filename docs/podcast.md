@@ -3,59 +3,7 @@ layout: default
 cast:
   name: podcast
 ---
-<style>
-.gitcast-artical {
-  margin-top:5;
-  margin-bottom:10;
-  margin-left:5;
-  margin-right:5;
-}
-	
-.gitcast-content {
-  display: flex;
-}
-
-.gitcast-cover{
-  margin-right:5;	
-}
-
-.gitcast-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.gitcast-header {
-  display: flex;
-}
-
-.gitcast-title {
-  flex: 1;
-}
-
-.gitcast-title h1 {
-  margin-top:5;
-  margin-bottom:0;
-}
-
-.gitcast-audiocontrol {
-  align-self: center;
-}
-
-.gitcast-excerpt {
-  flex: 1;
-}
-
-.gitcast-excerpt p {
-  margin-top:5;
-  margin-bottom:5;
-  white-space:pre-wrap;
-}
-
-.gitcast-action {
-  text-align: right;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="asset\css\gitcast.css">
 
 {%- for collection in site.collections | where: "label", page.cast.name -%}
   {% assign sorted = collection.docs | sort: 'date' | reverse %}
