@@ -3,33 +3,18 @@ layout: none
 cast:
   name: podcast
 ---
-{"gitcast":[
+{"gitcasts":[
   {%- assign cCount = 0 -%}
   {%- for collection in site.collections -%}{% if collection.gitcast == true %}
     {%- if cCount == 1 -%}{{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
     {
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
-      "castName":"{{ collection.label }}", "maxDate":"{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}", "newToday":
-      {%- assign newTomorrow = false -%}
-      {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
+      "name":"{{ collection.label }}", "refreshDates":[
+      {%- assign sorted = collection.docs | where_exp: 'date', 'date < site.time' | sort: 'date' -%}
       {%- for post in sorted -%}
-        {%- comment -%}Check date to determine if its published{%- endcomment -%}
-        {%- capture nowyear %}{{'now' | date: '%Y'}}{% endcapture -%}
-        {%- capture nowmonth %}{{'now' | date: '%m'}}{% endcapture -%}
-        {%- capture nowday %}{{'now' | date: '%d'}}{% endcapture -%}
-        {%- capture tomorrow %}{{nowyear}}/{{nowmonth}}/{{nowday | plus: 1}}{% endcapture -%}
-        {%- capture tomorrow %}{{tomorrow | date: '%s'}}{% endcapture -%}
-        {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
-        {% if posttime == tomorrow %} 
-          {%- assign newTomorrow = true -%}
-        {%- endif -%}
+        {%- if pCount == 1 -%}{{','}}{%- else -%}{%- assign pCount = 1 -%}{%- endif -%}          
+        "{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}"
       {%- endfor -%}
-      "{{ newTomorrow }}
-  
-  posttime: {{posttime}}
-  
-  tomorrow: {{tomorrow}}
-    
-  "}
+  ]}
   {%- endif -%}{%- endfor -%}
 ]}
