@@ -6,6 +6,7 @@ author:
 # Collections
 collections:
   podcast:
+    gitcast: true
     output: true
     permalink: /:collection/:year-:month-:day-:title/
 
