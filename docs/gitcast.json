@@ -4,6 +4,7 @@ cast:
   name: podcast
 ---
 {
+  { "test":"true"},
   {%- for collection in site.collections | where: "gitcast", true -%}
   ["{{ collection.label }}" 
     {
