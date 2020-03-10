@@ -4,7 +4,7 @@ cast:
   name: podcast
 ---
 {
-  {%- for collection in site.collections | where: "gitcast", true -%}
+  {%- for collection in site.collections -%}{%- if collection.gitcast == true -%}
   ["{{ collection.label | append: collection.gitcast }}" 
     {
       {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
@@ -23,5 +23,5 @@ cast:
       "{{ newToday }}"
     }
   ]
-  {%- endfor -%}
+  {%- endif -%}{%- endfor -%}
 }
