@@ -8,7 +8,7 @@ cast:
   {%- for collection in site.collections | where: "label", page.cast.name -%}
     {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
     {%- for post in sorted | first-%}
-      {{ post.date | jsonify }}
+      {{ post.date | date: "%Y/%m/%d" }}
     {%- endfor -%}
   {%- endfor -%}
   "
