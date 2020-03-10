@@ -50,7 +50,7 @@
   text-align: right;
 }
 
-@media only screen and (min-width: 651px) and (max-width: 850px) {
+@media only screen and (min-width: 561px) and (max-width: 850px) {
   .gitcast-content {
     flex-direction: row;
   }
@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 560px) {
   .gitcast-content {
     flex-direction: column;
   }
