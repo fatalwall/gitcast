@@ -57,4 +57,7 @@
   .gitcast-header {
     flex-direction: column;
   }
+  .gitcast-cover {
+    align-self: center;
+  }
 }
