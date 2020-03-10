@@ -4,11 +4,12 @@ cast:
   name: podcast
 ---
 {
-  {%- for collection in site.collections -%}{%- if collection.gitcast == true -%}
+  {%- for collection in site.collections -%}{% if collection.gitcast == true %}
   [
     "{{ collection.label }}" 
     {
-      {% assign post = collection.docs | sort: 'date' | reverse | first %}
+      {%- assign post = collection.docs | sort: 'date' | reverse | first -%}
+    
       "maxDate":"{{ post.date | date: "%Y/%m/%d" }}",
       "newToday":
       {%- assign newToday = false -%}
@@ -24,5 +25,5 @@ cast:
       "{{ newToday }}"
     }
   ]
-  {% endif %}{% endfor %}
+  {% endif %}{%- endfor -%}
 }
