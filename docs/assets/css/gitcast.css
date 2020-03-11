@@ -10,7 +10,9 @@
 }
 
 .gitcast-cover{
-  margin-right:5;	
+  margin-right:5;
+  max-width=300;
+  max-height=300;
 }
 
 .gitcast-body {
