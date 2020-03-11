@@ -17,10 +17,10 @@ cast:
           {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.name | remove_first: '/' | remove_first: '.md' -%}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
           {%- assign audio =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
-        {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
-          {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
-          {%- for image in collection.files -%}{%- if image.extname == '.jpg' -%}{%- if image.basename == postname -%}
-            {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: image.name -%}
+        {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
+          {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
+          {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == postname -%}
+            {%- assign cover =  page.cast.name | append: '/' | append: image.name -%}
             {%- break -%}
 	  {%- endif -%}{%- endif -%}{%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
@@ -28,7 +28,7 @@ cast:
 <article class='gitcast-artical' id='{{post.title}}'>
   <div class='gitcast-content'>
     <div class='gitcast-cover'>
-      <img src="{{cover}}" alt="ImageDescription" />
+      <img src="{{site.baseurl}}/{{cover}}" alt="ImageDescription" />
     </div>  
     <div class='gitcast-body'>
       <div class="gitcast-header">
