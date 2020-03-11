@@ -34,7 +34,7 @@ cast:
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png"/>
+  <itunes:image href="{{ site.url | replace: 'http://', '//'}}{{site.baseurl}}/{{page.cast.name}}/default.png"/>
   <image>
     <url>{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png</url>
     <title>{{ site.title }}</title>
