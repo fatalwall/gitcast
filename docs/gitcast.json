@@ -14,6 +14,11 @@ cast:
       {%- for post in sorted -%}
         {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
         {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
+  
+  posttime:{{posttime}}
+  
+  nowunix:{{nowunix}}
+  
         {% if posttime > nowunix %}
           {%- if pCount == 1 -%}{{','}}{%- else -%}{%- assign pCount = 1 -%}{%- endif -%}          
           "{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}"
