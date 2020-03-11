@@ -15,7 +15,7 @@
 
 .gitcast-cover img {
   max-width=300;
-  max-height=auto;
+  height=auto;
 }
 
 .gitcast-body {
