@@ -9,7 +9,7 @@ cast:
     {%- if cCount == 1 -%}{{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
     {
       "name":"{{ collection.label }}", "refreshDates":[
-      {%- assign sorted = collection.docs |  | where_exp: 'date', 'date > now' | sort: 'date' | reverse -%}
+      {%- assign sorted = collection.docs |  where_exp: 'date', 'date > now' | sort: 'date' | reverse -%}
       {%- assign pCount = 0 -%}
       {%- for post in sorted -%}
         {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
