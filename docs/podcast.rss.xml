@@ -13,7 +13,7 @@ cast:
 <channel>
   <language>en-US</language>
   <atom:link rel="self" type="application/rss+xml" href="{{ site.url | append: site.baseurl }}/{{page.cast.name}}.rss"/>
-  <itunes:new-feed-url>{{ site.url | append: site.baseurl }}/{{page.cast.name}}.rss</itunes:new-feed-url>
+  <itunes:new-feed-url>{{ site.url }}/{{page.cast.name}}.rss</itunes:new-feed-url>
   <title>{{ site.title }}</title>
   <link>{{ site.url | append: site.baseurl }}</link>
   <description>
