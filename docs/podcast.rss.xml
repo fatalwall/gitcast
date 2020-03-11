@@ -38,7 +38,7 @@ cast:
   <image>
     <url>{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png</url>
     <title>{{ site.title }}</title>
-    <link>{{ site.url | append: site.baseurl }}</link>
+    <link>{{ site.url }}{{ site.baseurl }}/{{ page.cast.name }}</link>
   </image>  
 {%- for collection in site.collections | where: "label", page.cast.name -%}
   {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
