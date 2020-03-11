@@ -62,14 +62,11 @@
   .gitcast-header {
     flex-direction: column;
   }
+}
+
+@media only screen and (min-width: 561px) and (max-width: 699px) {
   .gitcast-cover img {
     max-width: 200px;
-    height: auto;
-  }
-}
-@media only screen and (min-width: 700px) and (max-width: 850px) {
-  .gitcast-cover img {
-    max-width: 300px;
     height: auto;
   }
 }
