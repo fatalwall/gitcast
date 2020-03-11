@@ -10,6 +10,7 @@ cast:
     {
       "name":"{{ collection.label }}", "refreshDates":[
       {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
+      {%- assign pCount = 0 -%}
       {%- for post in sorted -%}
         {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
         {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
