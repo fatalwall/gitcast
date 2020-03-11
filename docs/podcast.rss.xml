@@ -36,7 +36,7 @@ cast:
   </itunes:category>
   <itunes:image href="{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png"/>
   <image>
-    <url>{{ site.url | append: site.baseurl }}/default.png</url>
+    <url>{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png</url>
     <title>{{ site.title }}</title>
     <link>{{ site.url | append: site.baseurl }}</link>
   </image>  
@@ -51,7 +51,7 @@ cast:
           {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.name | remove_first: '/' | remove_first: '.md' -%}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
           {%- assign audio =  page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
-        {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
+        {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
           {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
           {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == postname -%}
             {%- assign cover =  page.cast.name | append: '/' | append: image.name -%}
