@@ -68,7 +68,7 @@ cast:
           <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
           <itunes:image href="{{site.url}}{{site.baseurl}}/{{cover}}"/>
           <media:content url="{{site.url}}{{site.baseurl}}/{{audio}}" type="audio/mpeg"/>
-          <media:content url="{{site.url}}{{site.baseurl}}/{{cover}}" type="image/jpeg"/>
+          <media:content url="{{site.url}}{{site.baseurl}}/{{cover}}" type="image/png"/>
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <itunes:duration>{{ post.duration }}</itunes:duration>
           <enclosure url="{{site.url}}{{site.baseurl}}/{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
