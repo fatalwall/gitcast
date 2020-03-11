@@ -34,9 +34,9 @@ cast:
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{ site.github.url }}/default.jpg"/>
+  <itunes:image href="{{site.url}}{{site.baseurl}}default.png"/>
   <image>
-    <url>{{ site.url | append: site.baseurl }}/default.jpg</url>
+    <url>{{ site.url | append: site.baseurl }}/default.png</url>
     <title>{{ site.title }}</title>
     <link>{{ site.url | append: site.baseurl }}</link>
   </image>  
@@ -50,11 +50,11 @@ cast:
         {%- comment -%}Figure out episode name{%- endcomment -%}
           {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.name | remove_first: '/' | remove_first: '.md' -%}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
-          {%- assign audio =  site.url | append: site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
+          {%- assign audio =  page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.jpg or image matching episode name{%- endcomment -%}
-          {%- assign cover =  site.url | append: site.baseurl | append: '/' | append: page.cast.name  | append: '/' | append: 'default.jpg' -%}
-          {%- for image in collection.files -%}{%- if image.extname == '.jpg' -%}{%- if image.basename == postname -%}
-            {%- assign cover =  site.baseurl | append: '/' | append: page.cast.name | append: '/' | append: image.name -%}
+          {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
+          {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == postname -%}
+            {%- assign cover =  page.cast.name | append: '/' | append: image.name -%}
             {%- break -%}
 	        {%- endif -%}{%- endif -%}{%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
@@ -66,12 +66,12 @@ cast:
           <itunes:summary>{{ post.excerptplain }}</itunes:summary>
           <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
           <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
-          <itunes:image href="{{cover}}"/>
-          <media:content url="{{audio}}" type="audio/mpeg"/>
-          <media:content url="{{cover}}" type="image/jpeg"/>
+          <itunes:image href="{{site.url}}{{site.baseurl}}{{cover}}"/>
+          <media:content url="{{site.url}}{{site.baseurl}}{{audio}}" type="audio/mpeg"/>
+          <media:content url="{{site.url}}{{site.baseurl}}{{cover}}" type="image/jpeg"/>
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <itunes:duration>{{ post.duration }}</itunes:duration>
-          <enclosure url="{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
+          <enclosure url="{{site.url}}{{site.baseurl}}{{audio}}" length="{{ post.length }}" type="audio/mpeg"/>
           <link>{{site.url}}{{site.baseurl}}{{ post.url }}</link>
         </item>
      
