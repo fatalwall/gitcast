@@ -11,6 +11,9 @@
 
 .gitcast-cover{
   margin-right:5;
+}
+
+.gitcast-cover img{
   max-width=300;
   max-height=300;
 }
