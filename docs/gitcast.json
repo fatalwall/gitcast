@@ -9,10 +9,14 @@ cast:
     {%- if cCount == 1 -%}{{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
     {
       "name":"{{ collection.label }}", "refreshDates":[
-      {%- assign sorted = collection.docs | where_exp: 'date', 'date > now' | sort: 'date' -%}
+      {%- assign sorted = collection.docs | sort: 'date' -%}
       {%- for post in sorted -%}
-        {%- if pCount == 1 -%}{{','}}{%- else -%}{%- assign pCount = 1 -%}{%- endif -%}          
-        "{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}"
+        {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
+        {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
+        {% if posttime > nowunix %}
+          {%- if pCount == 1 -%}{{','}}{%- else -%}{%- assign pCount = 1 -%}{%- endif -%}          
+          "{{ post.date | date: "%Y/%m/%d" | default: '1900/01/01' }}"
+        {%- endif -%}
       {%- endfor -%}
   ]}
   {%- endif -%}{%- endfor -%}
