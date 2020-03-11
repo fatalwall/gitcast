@@ -13,9 +13,9 @@
   margin-right:5;
 }
 
-.gitcast-cover > img{
+.gitcast-cover img {
   max-width=300;
-  max-height=300;
+  max-height=auto;
 }
 
 .gitcast-body {
