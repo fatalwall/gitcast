@@ -13,10 +13,7 @@
   margin-right:5;
 }
 
-.gitcast-cover img {
-  max-width=300;
-  height=auto;
-}
+
 
 .gitcast-body {
   display: flex;
