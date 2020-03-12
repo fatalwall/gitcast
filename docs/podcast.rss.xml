@@ -1,7 +1,8 @@
 ---
 layout: none
 cast:
-  name: podcast
+  title: "Cast Collextion Example"
+  collection: podcast
   #type: 'episodic'
   #explicit: 'no'
 ---
@@ -12,9 +13,9 @@ cast:
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
 <channel>
   <language>en-US</language>
-  <atom:link rel="self" type="application/rss+xml" href="{{ site.url | append: site.baseurl }}/{{page.cast.name}}.rss"/>
-  <itunes:new-feed-url>{{site.url}}{{site.baseurl}}/{{page.cast.name}}.rss</itunes:new-feed-url>
-  <title>{{ site.title }}</title>
+  <atom:link rel="self" type="application/rss+xml" href="{{ site.url | append: site.baseurl }}/{{page.cast.collection}}.rss"/>
+  <itunes:new-feed-url>{{site.url}}{{site.baseurl}}/{{page.cast.collection}}.rss</itunes:new-feed-url>
+  <title>{{ page.cast.title | default: site.title }}</title>
   <link>{{ site.url | append: site.baseurl }}</link>
   <description>
     <![CDATA[{{ site.description }}]]>  
@@ -34,13 +35,13 @@ cast:
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{ site.url | replace: 'http://', '//'}}{{site.baseurl}}/{{page.cast.name}}/default.png"/>
+  <itunes:image href="{{ site.url | replace: 'http://', '//'}}{{site.baseurl}}/{{page.cast.collection}}/default.png"/>
   <image>
-    <url>{{site.url}}{{site.baseurl}}/{{page.cast.name}}/default.png</url>
-    <title>{{ site.title }}</title>
-    <link>{{ site.url }}{{ site.baseurl }}/{{ page.cast.name }}</link>
+    <url>{{site.url}}{{site.baseurl}}/{{page.cast.collection}}/default.png</url>
+    <title>{{ page.cast.title | default: site.title }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}/{{ page.cast.collection }}</link>
   </image>  
-{%- for collection in site.collections | where: "label", page.cast.name -%}
+{%- for collection in site.collections | where: "label", page.cast.collection -%}
   {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
@@ -48,13 +49,13 @@ cast:
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %} 
         {%- comment -%}Figure out episode name{%- endcomment -%}
-          {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.name | remove_first: '/' | remove_first: '.md' -%}
+          {%- assign postname = post.path | remove_first: '_' | remove_first: page.cast.collection | remove_first: '/' | remove_first: '.md' -%}
         {%- comment %}Set the Audio file matching episode name{%- endcomment -%}
-          {%- assign audio =  page.cast.name  | append: '/' | append: postname | append: '.mp3' -%}	
+          {%- assign audio =  page.cast.collection  | append: '/' | append: postname | append: '.mp3' -%}	
         {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
-          {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
+          {%- assign cover =  page.cast.collection  | append: '/' | append: 'default.png' -%}
           {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == postname -%}
-            {%- assign cover =  page.cast.name | append: '/' | append: image.name -%}
+            {%- assign cover =  page.cast.collection | append: '/' | append: image.name -%}
             {%- break -%}
 	        {%- endif -%}{%- endif -%}{%- endfor -%}
         {%- comment -%}Create Item record for Episoded{%- endcomment -%}
