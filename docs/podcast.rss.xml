@@ -5,10 +5,10 @@ cast:
   collection: podcast
   #type: 'episodic'
   #explicit: 'no'
-  author:
-    name: "Jane Doe"
-    email: "email@address.com"
-  copyright: "2020 Doe LLC"
+  #author:
+  #  name: "Jane Doe"
+  #  email: "email@address.com"
+  #copyright: "2020 Doe LLC"
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
