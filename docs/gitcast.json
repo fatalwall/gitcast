@@ -1,14 +1,12 @@
 ---
 layout: none
-cast:
-  name: podcast
 ---
 {"gitcasts":[
   {%- assign cCount = 0 -%}
   {%- for collection in site.collections -%}{% if collection.gitcast == true %}
     {%- if cCount == 1 -%}{{','}}{%- else -%}{%- assign cCount = 1 -%}{%- endif -%}          
     {
-      "name":"{{ collection.label }}", "refreshDates":[
+      "collection":"{{ collection.label }}", "refreshDates":[
       {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
       {%- assign pCount = 0 -%}
       {%- for post in sorted -%}
