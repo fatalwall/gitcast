@@ -8,7 +8,7 @@ cast:
   author:
     name: "Jane Doe"
     email: "email@address.com"
-  #copyright: ""
+  copyright: "2020 Doe LLC"
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
