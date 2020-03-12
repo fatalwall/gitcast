@@ -32,7 +32,7 @@ cast:
   </itunes:owner>
   <itunes:author>{{ page.cast.author.name | default: site.author.name }}</itunes:author>
   {%- capture defaultCopywriteAuthor %}{{page.cast.author.name | default: site.author.name}}{% endcapture -%}
-  {%- capture defaultCopywriteDate %}{{page.date | date: '%Y'}}{% endcapture -%}
+  {%- capture defaultCopywriteDate %}{{ 'now' | date: '%Y' }}{% endcapture -%}
   {%- assign defaultCopywrite = defaultCopywriteDate | append: " " | append: defaultCopywriteAuthor -%}
   <copyright>{{ page.copywrite | default: defaultCopywrite}}</copyright>
   <itunes:explicit>{{ page.cast.explicit | default:'yes' }}</itunes:explicit>
