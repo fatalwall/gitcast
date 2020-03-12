@@ -5,6 +5,10 @@ cast:
   collection: podcast
   #type: 'episodic'
   #explicit: 'no'
+  author:
+    name: "Jane Doe"
+    email: "email@address.com"
+  #copyright: ""
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
@@ -23,11 +27,14 @@ cast:
   <itunes:type>{{ page.cast.type | default:'episodic' }}</itunes:type>
   <itunes:summary>{{ site.description }}</itunes:summary>
   <itunes:owner>
-    <itunes:name>{{ site.author.name }}</itunes:name>
+    <itunes:name>{{ page.cast.author.name | default: site.author.name }}</itunes:name>
     <itunes:email>{{ site.author.email }}</itunes:email>
   </itunes:owner>
-  <itunes:author>{{ site.author.name }}</itunes:author>
-  <copyright>2020 {{ site.author.name }}</copyright>
+  <itunes:author>{{ page.cast.author.name | default: site.author.name }}</itunes:author>
+  {%- capture defaultCopywriteAuthor %}{{page.cast.author.name | default: site.author.name}}{% endcapture -%}
+  {%- capture defaultCopywriteDate %}{{page.date | date: '%Y'}}{% endcapture -%}
+  {%- assign defaultCopywrite = defaultCopywriteDate | append: " " | append: defaultCopywriteAuthor -%}
+  <copyright>{{ page.copywrite | default: defaultCopywrite}}</copyright>
   <itunes:explicit>{{ page.cast.explicit | default:'yes' }}</itunes:explicit>
   <itunes:category text="Comedy">
     <itunes:category text="Improv"/>
@@ -66,7 +73,7 @@ cast:
           <description><![CDATA[{{ post.excerpt }}]]></description>
           <itunes:summary>{{ post.excerptplain }}</itunes:summary>
           <itunes:episodeType>{{ post.episodetype | default: 'full' }}</itunes:episodeType>
-          <itunes:author>{{ post.author.name | default: site.author.name }}</itunes:author>
+          <itunes:author>{{ post.author.name | default: collection.cast.author.name | default: site.author.name }}</itunes:author>
           <itunes:image href="{{site.url}}{{site.baseurl}}/{{cover}}"/>
           <media:content url="{{site.url}}{{site.baseurl}}/{{audio}}" type="audio/mpeg"/>
           <media:content url="{{site.url}}{{site.baseurl}}/{{cover}}" type="image/png"/>
