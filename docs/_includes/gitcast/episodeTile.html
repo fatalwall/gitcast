@@ -4,7 +4,7 @@
 
 
 
-{%- assign postname = include.url | remove_first: include.type | remove_first: '.md' replace: '/', '' -%}
+{%- assign postname = include.url | remove_first: include.type | remove_first: '.md' | replace: '/', '' -%}
 {%- assign audio =  site.baseurl | append: '/' | append: include.type  | append: '/' | append: postname | append: '.mp3' -%}
 
 type:{{include.type}}
