@@ -1,0 +1,32 @@
+<article class='gitcast-artical' id='{{include.title}}'>
+  <div class='gitcast-content'>
+    <div class='gitcast-cover'>
+      <img src="{{site.baseurl}}/{{cover}}" alt="ImageDescription" />
+    </div>  
+    <div class='gitcast-body'>
+      <div class="gitcast-header">
+        <div class="gitcast-title">
+          <h1>
+            <a href="{{site.baseurl}}{{include.url}}">{{post.title}}</a>
+          </h1>
+          <div class='gitcast-date'>
+            <a href="{{site.baseurl}}{{include.url}}">
+              <time class="published" datetime="{{include.date}}">{{ include.date | date: "%B %d, %Y" }}</time>
+            </a>
+          </div>
+        </div>
+        <div class="gitcast-audiocontrol">
+          <audio controls controlsList="nodownload">
+            <source src="{{audio}}" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>		
+      <div class='gitcast-excerpt'>
+        <p class="excerpt">{{include.excerpt | strip_html}}</p>
+      </div>
+      <div class="gitcast-action">
+        <a class="read-more" href="{{site.baseurl}}{{include.url}}">Read More</a>
+      </div>
+    </div>
+  </div>
+</article>
