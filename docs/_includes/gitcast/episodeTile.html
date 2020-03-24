@@ -1,21 +1,23 @@
 
-PostPath:{{post.path}}
 
+
+
+
+
+{%- assign postname = include.url | remove_first: include.type | remove_first: '.md' | remove: '/' -%}
+{%- assign audio =  site.baseurl | append: '/' | append: include.type  | append: '/' | append: postname | append: '.mp3' -%}
 
 title:{{include.title}}
-
-
+<br \>
 url:{{include.url}}
-
-
+<br \>
 date:{{include.date}}
-
-
+<br \>
 excerpt:{{include.excerpt}}
-
-
-{%- assign postname = post.path | remove_first: '_' | remove_first: include.type | remove_first: '/' | remove_first: '.md' -%}
-{%- assign audio =  site.baseurl | append: '/' | append: include.type  | append: '/' | append: postname | append: '.mp3' -%}
+<br \>
+postname:{{postname}}
+<br \>
+audio:{{audio}}
 
 {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
   {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
