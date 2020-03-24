@@ -1,13 +1,18 @@
 
 PostPath:{{post.path}}
 
+
 title:{{include.title}}
+
 
 url:{{include.url}}
 
+
 date:{{include.date}}
 
+
 excerpt:{{include.excerpt}}
+
 
 {%- assign postname = post.path | remove_first: '_' | remove_first: include.type | remove_first: '/' | remove_first: '.md' -%}
 {%- assign audio =  site.baseurl | append: '/' | append: include.type  | append: '/' | append: postname | append: '.mp3' -%}
