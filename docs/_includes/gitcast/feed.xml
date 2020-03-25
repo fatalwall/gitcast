@@ -16,7 +16,7 @@
   <itunes:summary>{{ site.description }}</itunes:summary>
   <itunes:owner>
     <itunes:name>{{ include.cast.author.name | default: site.author.name }}</itunes:name>
-    <itunes:email>{{ site.author.email }}</itunes:email>
+    <itunes:email>{{ include.cast.author.email | default: site.author.email }}</itunes:email>
   </itunes:owner>
   <itunes:author>{{ include.cast.author.name | default: site.author.name }}</itunes:author>
   {%- capture defaultCopywriteAuthor %}{{include.cast.author.name | default: site.author.name}}{% endcapture -%}
@@ -43,6 +43,8 @@
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %} 
+         {{ assing post.author = post.author | default: include.cast.author | default: site.author }}
+
          {%- include gitcast/feed-item.xml  type           = collection.label  
                                              id             = post.id
                                              date           = post.date
