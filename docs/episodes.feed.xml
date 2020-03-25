@@ -1,0 +1,13 @@
+---
+layout: none
+cast:
+  title: "Cast Collextion Example"
+  collection: podcast
+  #type: 'episodic'
+  #explicit: 'no'
+  #author:
+  #  name: "Jane Doe"
+  #  email: "email@address.com"
+  #copyright: "2020 Doe LLC"
+---
+{%- include gitcast/feed.xml cast = cast -%}
