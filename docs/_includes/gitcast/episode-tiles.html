@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="{{ include.cast.style | default: 'assets/css/gitcast.css' }}">
 
-{%- for collection in site.collections | where: "label", include.cast.name -%}
+{%- for collection in site.collections | where: "label", include.cast.collection -%}
   {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
