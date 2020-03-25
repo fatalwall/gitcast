@@ -12,23 +12,22 @@
     {%- assign internal-cover =  internal-path | append: '.png' -%}
     {%- break -%}
   {%- endif -%}{%- endif -%}{%- endfor -%}
-id:{{include.id}}
+
+
+*id:{{include.id}}
 <br \>
-type:{{include.type}}
+*type:{{include.type}}
 <br \>
-title:{{include.title}}
+*title:{{include.title}}
 <br \>
-url:{{include.url}}
+*url:{{include.url}}
 <br \>
-i:nametext:{{internal-nametext}}
+*excerpt:{{include.excerpt}}
 <br \>
-i:namedate:{{internal-namedate}}
+*date:{{include.date}}
 <br \>
-i:name:{{internal-name}}
+LINK:{{site.baseurl}}{{include.url}}
 <br \>
-i:path:{{internal-path}}
-<br \>
-i:audio:{{internal-audio}}
 
 
 
