@@ -1,25 +1,18 @@
----
-layout: default
-cast:
-  name: podcast
-#style: assets/css/gitcast.css
----
-<link rel="stylesheet" type="text/css" href="{{ page.style | default: 'assets/css/gitcast.css' }}">
+<link rel="stylesheet" type="text/css" href="{{ include.cast.style | default: 'assets/css/gitcast.css' }}">
 
-{%- for collection in site.collections | where: "label", page.cast.name -%}
+{%- for collection in site.collections | where: "label", include.cast.name -%}
   {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %}           
-
          {%- include gitcast/episodeTile.html 	type	= collection.label
-			      			id	= post.id
-					      	title	= post.title
-                                              	url	= post.url
+                                              	id	= post.id
                                               	date	= post.date
+                                              	title	= post.title
                                               	excerpt	= post.excerpt
+                                              	url	= post.url
                                               	-%}
       {%- endif -%}
   {%- endfor -%}
