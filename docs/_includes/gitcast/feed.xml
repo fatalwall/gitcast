@@ -52,7 +52,7 @@
                                              duration       = post.duration
                                              length         = post.length
                                              episodeType    = post.episodetype
-                                             author         = post.author | default: collection.author
+                                             author         = post.author
                                              -%}
 
       {%- endif -%}
