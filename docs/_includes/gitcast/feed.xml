@@ -55,7 +55,7 @@ cast:
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %} 
-         {%- include gitcast/episodeTile.html 	type	      = collection.label
+         {%- include gitcast/feed-item.html 	type	      = collection.label
                                                 id	        = post.id
                                                 date	      = post.date
                                                 title	      = post.title
