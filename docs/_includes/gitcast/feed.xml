@@ -1,15 +1,3 @@
----
-layout: none
-cast:
-  title: "Cast Collextion Example"
-  collection: podcast
-  #type: 'episodic'
-  #explicit: 'no'
-  #author:
-  #  name: "Jane Doe"
-  #  email: "email@address.com"
-  #copyright: "2020 Doe LLC"
----
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" 
      xmlns:atom="http://www.w3.org/2005/Atom" 
@@ -17,38 +5,38 @@ cast:
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
 <channel>
   <language>en-US</language>
-  <atom:link rel="self" type="application/rss+xml" href="{{ site.url | append: site.baseurl }}/{{page.cast.collection}}.rss"/>
-  <itunes:new-feed-url>{{site.url}}{{site.baseurl}}/{{page.cast.collection}}.rss</itunes:new-feed-url>
-  <title>{{ page.cast.title | default: site.title }}</title>
+  <atom:link rel="self" type="application/rss+xml" href="{{ site.url | append: site.baseurl }}/{{include.cast.collection}}.rss"/>
+  <itunes:new-feed-url>{{site.url}}{{site.baseurl}}/{{include.cast.collection}}.rss</itunes:new-feed-url>
+  <title>{{ include.cast.title | default: site.title }}</title>
   <link>{{ site.url | append: site.baseurl }}</link>
   <description>
     <![CDATA[{{ site.description }}]]>  
   </description>
-  <itunes:type>{{ page.cast.type | default:'episodic' }}</itunes:type>
+  <itunes:type>{{ include.cast.type | default:'episodic' }}</itunes:type>
   <itunes:summary>{{ site.description }}</itunes:summary>
   <itunes:owner>
-    <itunes:name>{{ page.cast.author.name | default: site.author.name }}</itunes:name>
+    <itunes:name>{{ include.cast.author.name | default: site.author.name }}</itunes:name>
     <itunes:email>{{ site.author.email }}</itunes:email>
   </itunes:owner>
-  <itunes:author>{{ page.cast.author.name | default: site.author.name }}</itunes:author>
-  {%- capture defaultCopywriteAuthor %}{{page.cast.author.name | default: site.author.name}}{% endcapture -%}
+  <itunes:author>{{ include.cast.author.name | default: site.author.name }}</itunes:author>
+  {%- capture defaultCopywriteAuthor %}{{include.cast.author.name | default: site.author.name}}{% endcapture -%}
   {%- capture defaultCopywriteDate %}{{ 'now' | date: '%Y' }}{% endcapture -%}
   {%- assign defaultCopywrite = defaultCopywriteDate | append: " " | append: defaultCopywriteAuthor -%}
-  <copyright>{{ page.cast.copywrite | default: defaultCopywrite}}</copyright>
-  <itunes:explicit>{{ page.cast.explicit | default:'yes' }}</itunes:explicit>
+  <copyright>{{ include.cast.copywrite | default: defaultCopywrite}}</copyright>
+  <itunes:explicit>{{ include.cast.explicit | default:'yes' }}</itunes:explicit>
   <itunes:category text="Comedy">
     <itunes:category text="Improv"/>
   </itunes:category>
   <itunes:category text="Fiction">
     <itunes:category text="Comedy Fiction"/>
   </itunes:category>
-  <itunes:image href="{{ site.url | replace: 'http://', '//'}}{{site.baseurl}}/{{page.cast.collection}}/default.png"/>
+  <itunes:image href="{{ site.url | replace: 'http://', '//'}}{{site.baseurl}}/{{include.cast.collection}}/default.png"/>
   <image>
-    <url>{{site.url}}{{site.baseurl}}/{{page.cast.collection}}/default.png</url>
-    <title>{{ page.cast.title | default: site.title }}</title>
-    <link>{{ site.url }}{{ site.baseurl }}/{{ page.cast.collection }}</link>
+    <url>{{site.url}}{{site.baseurl}}/{{include.cast.collection}}/default.png</url>
+    <title>{{ include.cast.title | default: site.title }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}/{{ include.cast.collection }}</link>
   </image>  
-{%- for collection in site.collections | where: "label", page.cast.collection -%}
+{%- for collection in site.collections | where: "label", include.cast.collection -%}
   {%- assign sorted = collection.docs | sort: 'date' | reverse -%}
   {%- for post in sorted -%}
     {%- comment -%}Check date to determine if its published{%- endcomment -%}
