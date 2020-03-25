@@ -43,17 +43,7 @@
       {%- capture nowunix %}{{'now' | date: '%s'}}{% endcapture -%}
       {%- capture posttime %}{{post.date | date: '%s'}}{% endcapture -%}
       {% if posttime < nowunix %} 
-         {%- include gitcast/feed-item.html 	type	      = collection.label
-                                                id	        = post.id
-                                                date	      = post.date
-                                                title	      = post.title
-                                                excerpt	    = post.excerpt
-                                                url	        = post.url
-                                                duration    = post.duration
-                                                length      = post.length
-                                                episodeType = post.episodetype
-                                                author      = post.author | default: collection.author
-                                        -%}
+
 
       {%- endif -%}
   {%- endfor -%}
