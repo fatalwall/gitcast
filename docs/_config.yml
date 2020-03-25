@@ -8,4 +8,5 @@ collections:
   podcast:
     gitcast: true
     output: true
-    permalink: /:collection/:year-:month-:day-:title/
+    permalink: pretty
+    #permalink: /:collection/:year-:month-:day-:title/
