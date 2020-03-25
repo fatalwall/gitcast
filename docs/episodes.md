@@ -1,7 +1,7 @@
 ---
 layout: default
 cast:
-  name: podcast
+  collection: podcast
   #style: assets/css/gitcast.css
 ---
 
