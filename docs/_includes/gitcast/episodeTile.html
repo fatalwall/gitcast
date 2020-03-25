@@ -4,15 +4,16 @@
 
 
 
-{%- assign postname = post.name | remove ".md" | remove ".html" -%}
-{%- assign audio =  site.baseurl | append: '/' | append: include.type  | append: '/' | append: postname | append: '.mp3' -%}
+{%- assign internal.nametext = id | remove: include.type | replace: "/","" -%}
+{%- assign internal.namedate = include.date | date: "%Y-%m-%d" -%}
+{%- assign internal.name = include.namedate | append: "-" | append internal.nametext -%}
+{%- assign internal.path = site.baseurl | append: '/' | append: include.type  | append: '/' | append: internal.name -%}
+{%- assign internal.audio = internal.path | append: '.mp3' -%}
 
 
 id:{{include.id}}
 <br \>
 type:{{include.type}}
-<br \>
-name:{{include.name}}
 <br \>
 title:{{include.title}}
 <br \>
@@ -28,7 +29,7 @@ audio:{{audio}}
 
 {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
   {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
-  {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == postname -%}
+  {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == internal.name -%}
     {%- assign cover =  include.type | append: '/' | append: image.name -%}
     {%- break -%}
   {%- endif -%}{%- endif -%}{%- endfor -%}
