@@ -15,11 +15,11 @@ cast:
       {% if posttime < nowunix %}           
 
          {%- include gitcast/episodeTile.html 	type	= collection.label
+			      			id	= post.id
 					      	title	= post.title
                                               	url	= post.url
                                               	date	= post.date
                                               	excerpt	= post.excerpt
-			      		      	id	= post.id
                                               	-%}
       {%- endif -%}
   {%- endfor -%}
