@@ -1,0 +1,29 @@
+{%- assign internal-nametext = include.id | remove: include.type | replace: "/","" -%}
+{%- assign internal-namedate = include.date | date: "%Y-%m-%d" -%}
+{%- assign internal-name = internal-namedate | append: "-" | append: internal-nametext -%}
+{%- assign internal-dirpath = site.baseurl | append: '/' | append: include.type  | append: '/' -%}
+{%- assign internal-path = internal-dirpath | append: internal-name -%}
+{%- assign internal-audio = internal-path | append: '.mp3' -%}
+
+{%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
+  {%- assign internal-cover =  internal-dirpath | append: 'default.png' -%}
+  {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == internal-name -%}
+    {%- assign internal-cover =  internal-path | append: '.png' -%}
+    {%- break -%}
+  {%- endif -%}{%- endif -%}{%- endfor -%}        
+        
+<item>
+  <title>{{ include.title }}</title>
+  <itunes:title>{{ include.title }}</itunes:title>
+  <description><![CDATA[{{ include.excerpt }}]]></description>
+  <itunes:summary>{{ include.excerpt | strip_html }}</itunes:summary>
+  <itunes:episodeType>{{ include.episodetype | default: 'full' }}</itunes:episodeType>
+  <itunes:author>{{ include.author.name | default: site.author.name }}</itunes:author>
+  <itunes:image href="{{site.url}}{{internal-cover}}"/>
+  <media:content url="{{site.url}}{{internal-audio}}" type="audio/mpeg"/>
+  <media:content url="{{site.url}}{{internal-cover}}" type="image/png"/>
+  <pubDate>{{ include.date | date_to_rfc822 }}</pubDate>
+  <itunes:duration>{{ include.duration }}</itunes:duration>
+  <enclosure url="{{site.url}}{{internal-audio}}" length="{{ include.length }}" type="audio/mpeg"/>
+  <link>{{site.url}}{{site.baseurl}}{{ include.url }}</link>
+</item>
