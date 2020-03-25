@@ -4,9 +4,9 @@
 
 
 
-{%- assign internal.nametext = id | remove: include.type | replace: "/","" -%}
+{%- assign internal.nametext = include.id | remove: include.type | replace: "/","" -%}
 {%- assign internal.namedate = include.date | date: "%Y-%m-%d" -%}
-{%- assign internal.name = include.namedate | append: "-" | append internal.nametext -%}
+{%- assign internal.name = include.namedate | append: "-" | append: internal.nametext -%}
 {%- assign internal.path = site.baseurl | append: '/' | append: include.type  | append: '/' | append: internal.name -%}
 {%- assign internal.audio = internal.path | append: '.mp3' -%}
 
@@ -19,13 +19,9 @@ title:{{include.title}}
 <br \>
 url:{{include.url}}
 <br \>
-date:{{ include.date | date: "%Y-%m-%d" }}
-<br \>
 excerpt:{{include.excerpt}}
 <br \>
-postname:{{postname}}
-<br \>
-audio:{{audio}}
+audio:{{internal.audio}}
 
 {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
   {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
