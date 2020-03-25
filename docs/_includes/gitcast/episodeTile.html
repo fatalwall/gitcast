@@ -1,21 +1,9 @@
----
-internal:
-  nametext:""
-  namedate:""
-  name:""
-  path:""
-  audio:""
----
 
-
-
-
-
-{%- assign internal.nametext = include.id | remove: include.type | replace: "/","" -%}
-{%- assign internal.namedate = include.date | date: "%Y-%m-%d" -%}
-{%- assign internal.name = include.namedate | append: "-" | append: internal.nametext -%}
-{%- assign internal.path = site.baseurl | append: '/' | append: include.type  | append: '/' | append: internal.name -%}
-{%- assign internal.audio = internal.path | append: '.mp3' -%}
+{%- assign internal-nametext = include.id | remove: include.type | replace: "/","" -%}
+{%- assign internal-namedate = include.date | date: "%Y-%m-%d" -%}
+{%- assign internal-name = internal-namedate | append: "-" | append: internal-nametext -%}
+{%- assign internal-path = site.baseurl | append: '/' | append: include.type  | append: '/' | append: internal-name -%}
+{%- assign internal-audio = internal-path | append: '.mp3' -%}
 
 
 id:{{include.id}}
@@ -26,15 +14,15 @@ title:{{include.title}}
 <br \>
 url:{{include.url}}
 <br \>
-i:nametext:{{internal.nametext}}
+i:nametext:{{internal-nametext}}
 <br \>
-i:namedate:{{internal.namedate}}
+i:namedate:{{internal-namedate}}
 <br \>
-i:name:{{internal.name}}
+i:name:{{internal-name}}
 <br \>
-i:path:{{internal.path}}
+i:path:{{internal-path}}
 <br \>
-i:audio:{{internal.audio}}
+i:audio:{{internal-audio}}
 
 {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
   {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
