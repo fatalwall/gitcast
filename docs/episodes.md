@@ -5,4 +5,4 @@ cast:
   #style: assets/css/gitcast.css
 ---
 
-{%- include gitcast/episodeTileRows.html cast	= cast -%}
+{%- include gitcast/episode-tiles.html cast	= cast -%}
