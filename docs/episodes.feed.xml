@@ -1,6 +1,5 @@
 ---
 layout: none
-cast:
-  collection: podcast
+collection: podcast
 ---
 {%- include gitcast/feed.xml cast = cast -%}
