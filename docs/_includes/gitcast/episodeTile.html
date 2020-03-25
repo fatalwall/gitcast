@@ -2,10 +2,16 @@
 {%- assign internal-nametext = include.id | remove: include.type | replace: "/","" -%}
 {%- assign internal-namedate = include.date | date: "%Y-%m-%d" -%}
 {%- assign internal-name = internal-namedate | append: "-" | append: internal-nametext -%}
-{%- assign internal-path = site.baseurl | append: '/' | append: include.type  | append: '/' | append: internal-name -%}
+{%- assign internal-dirpath = site.baseurl | append: '/' | append: include.type  | append: '/' -%}
+{%- assign internal-path = internal-dirpath | append: internal-name -%}
 {%- assign internal-audio = internal-path | append: '.mp3' -%}
 
-
+{%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
+  {%- assign internal-cover =  internal-dirpath | append: 'default.png' -%}
+  {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == internal-name -%}
+    {%- assign internal-cover =  internal-path | append: '.png' -%}
+    {%- break -%}
+  {%- endif -%}{%- endif -%}{%- endfor -%}
 id:{{include.id}}
 <br \>
 type:{{include.type}}
@@ -24,17 +30,12 @@ i:path:{{internal-path}}
 <br \>
 i:audio:{{internal-audio}}
 
-{%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
-  {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
-  {%- for image in collection.files -%}{%- if image.extname == '.png' -%}{%- if image.basename == internal.name -%}
-    {%- assign cover =  include.type | append: '/' | append: image.name -%}
-    {%- break -%}
-  {%- endif -%}{%- endif -%}{%- endfor -%}
+
 
 <article class='gitcast-artical' id='{{include.title}}'>
   <div class='gitcast-content'>
     <div class='gitcast-cover'>
-      <img src="{{site.baseurl}}/{{cover}}" alt="ImageDescription" />
+      <img src="{{internal-cover}}" alt="ImageDescription" />
     </div>  
     <div class='gitcast-body'>
       <div class="gitcast-header">
@@ -50,7 +51,7 @@ i:audio:{{internal-audio}}
         </div>
         <div class="gitcast-audiocontrol">
           <audio controls controlsList="nodownload">
-            <source src="{{audio}}" type="audio/mpeg">
+            <source src="{{internal-audio}}" type="audio/mpeg">
           </audio>
         </div>
       </div>		
