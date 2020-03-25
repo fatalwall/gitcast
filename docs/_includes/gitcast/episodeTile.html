@@ -21,7 +21,15 @@ url:{{include.url}}
 <br \>
 excerpt:{{include.excerpt}}
 <br \>
-audio:{{internal.audio}}
+i:nametext:{{internal.nametext}}
+<br \>
+i:namedate:{{internal.namedate}}
+<br \>
+i:name:{{internal.name}}
+<br \>
+i:path:{{internal.path}}
+<br \>
+i:audio:{{internal.audio}}
 
 {%- comment -%}Set the Cover Image for the Podcast Episode - default.png or image matching episode name{%- endcomment -%}
   {%- assign cover =  page.cast.name  | append: '/' | append: 'default.png' -%}
